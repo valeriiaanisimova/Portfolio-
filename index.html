@@ -1,0 +1,2159 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Портфолио — Hero + Expertise + History + Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: rgb(24, 24, 24);
+            --surface: #3e3c39;
+            --text: #ffffff;
+            --muted: var(--text);
+            --muted1: #554a4b;
+            --stroke-color: rgb(255, 255, 255);
+            --card-bg: var(--surface);
+            --accent1: #000;
+            ;
+            --accent2: #e0dfdf;
+            --gradient: linear-gradient(135deg, var(--accent1), var(--accent2));
+
+            --header-h: 64px;
+            --max-w: 1200px;
+            --pad-x: 28px;
+
+            --avatar-size: 128px;
+            --name-size: 96px;
+            --subtitle-size: 20px;
+
+            --card-radius: 14px;
+            --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+
+            --project-thumb-h: 180px;
+            --ease: cubic-bezier(.2, .9, .2, 1);
+            --dur: 220ms;
+
+            --header-bg: rgb(24, 24, 24);
+            --header-border: rgba(0, 0, 0, 0.229);
+            --header-shadow: 0 4px 6px rgba(0, 0, 0, 0.189);
+
+            --timeline-bg: var(--surface);
+            --timeline-border: var(--accent1);
+        }
+
+        html[data-theme='light'] {
+            --bg: #f6f8fb;
+            --surface: #fff;
+            --text: #0f1724;
+            --muted: var(--text);
+            --muted1: #c4c0b7;
+            --stroke-color: rgb(0, 0, 0);
+            --card-bg: #cac2b9;
+            --card-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+
+            --header-bg: #ffffff;
+            --header-border: rgba(0, 0, 0, 0.25);
+            --header-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+
+            --timeline-bg: #fff;
+            --timeline-border: var(--accent2);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .container {
+            max-width: var(--max-w);
+            margin: 42px auto;
+            padding: 0 var(--pad-x);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-h);
+            z-index: 90;
+            display: flex;
+            align-items: center;
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--header-border);
+            box-shadow: var(--header-shadow);
+        }
+
+        header .container {
+            max-width: var(--max-w);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        nav a {
+            margin-left: 18px;
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        nav a:hover {
+            transform: translateY(-3px);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            left: 996px;
+            position: relative;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .0);
+            background: transparent;
+            color: var(--text);
+            cursor: pointer;
+            transition: transform .12s var(--ease);
+            left: -1169px;
+            position: relative;
+            font-size: 25px;
+            line-height: 1;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        main {
+            padding-top: calc(var(--header-h) + 12px);
+            min-height: 100vh;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 92vh;
+            display: flex;
+            align-items: flex-end;
+            overflow: visible;
+        }
+
+        .hero-inner {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            padding: 46px var(--pad-x);
+            width: 100%;
+            max-width: var(--max-w);
+            margin: 239px auto;
+            position: relative;
+            z-index: 10;
+            top: -60px;
+        }
+
+        @media(max-width:980px) {
+            .hero-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 28px 18px;
+            }
+        }
+
+        .left {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 12;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 159px;
+            overflow: hidden;
+            top: -20px;
+            position: relative;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(23.2%);
+        }
+
+        .hero-title {
+            z-index: 12;
+        }
+
+        .hero-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 80px;
+            margin: 0px;
+            font-weight: 900;
+            line-height: 1.60;
+            letter-spacing: 4px;
+        }
+
+        .hero-sub {
+            margin: 6px 0 0;
+            color: var(--muted);
+            font-size: var(--subtitle-size);
+            font-weight: 500;
+            left: -30px;
+            position: relative;
+        }
+
+        .hero-img {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hero-img.light {
+            display: none;
+        }
+
+        html[data-theme='light'] .hero-img.light {
+            display: block;
+        }
+
+        html[data-theme='light'] .hero-img.dark {
+            display: none;
+        }
+
+        section {
+            padding: 58px 0;
+            position: relative;
+            z-index: 5;
+            background: var(--bg);
+        }
+
+        .section-title {
+            font-size: 35px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: var(--text);
+            left: -1320px;
+            position: relative;
+            top: -11px;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            margin-top: 16px;
+        }
+
+        @media(min-width:760px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .project {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 15px solid rgba(255, 255, 255, .03);
+            display: flex;
+            flex-direction: column;
+            transition: transform .18s var(--ease), box-shadow .18s var(--ease);
+            cursor: pointer;
+            width: 570px;
+            height: 560px;
+            color: var(--text);
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, .6);
+        }
+
+        .thumb {
+            height: 590px;
+            object-fit: cover;
+            width: 570px;
+            display: block;
+        }
+
+        .p-body {
+            font-size: 20px;
+            padding: 12px;
+        }
+
+        .p-title {
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .p-desc.muted {
+            color: var(--muted);
+            padding-top: 20px;
+        }
+
+        .chips {
+            margin-top: 8px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .chip {
+            padding: 6px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, .03);
+            font-size: 12px;
+            color: var(--text);
+            background: transparent;
+        }
+
+        .expertise-grid {
+            margin-top: 98px;
+            display: grid;
+            gap: 64px;
+        }
+
+        @media (min-width: 760px) {
+            .expertise-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .expertise-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 40px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            box-shadow: var(--card-shadow);
+            min-height: 120px;
+            width: 376px;
+            height: 328px;
+            color: var(--text);
+            margin-top: 60px;
+            left: -50px;
+            position: relative;
+        }
+
+        .expertise-card h4 {
+            margin: 0 0 6px 0;
+            font-size: 25px;
+            letter-spacing: 0.4px;
+            color: var(--text);
+        }
+
+        .expertise-card p {
+            margin: 0;
+            color: var(--text);
+            font-size: 18px;
+            line-height: 1.45;
+            margin-top: 21px;
+        }
+
+        .skill-list {
+            margin-top: 10px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .skill {
+            font-size: 12px;
+            padding: 6px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.99);
+            background: rgba(255, 255, 255, 0.01);
+            color: var(--text);
+        }
+
+        .small-muted {
+            color: var(--muted);
+            font-size: 17px;
+            margin-top: 25px;
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+
+        .expertise-card .card-img {
+            width: 310px;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        #card-img1 {
+            width: 150px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+            margin-bottom: -108px;
+            top: -140px;
+            position: relative;
+            left: -20px;
+        }
+
+        #card-img2 {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+            margin-bottom: -108px;
+            top: -140px;
+            position: relative;
+            left: -20px;
+        }
+
+        #card-img3 {
+            width: 140px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+            margin-bottom: -108px;
+            top: -140px;
+            position: relative;
+            left: -20px;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 60px auto;
+            padding: 20px 0;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--accent1);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 30px;
+            box-sizing: border-box;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            top: 24px;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 3px solid var(--accent1);
+            color: var(--text);
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            font-weight: bold;
+        }
+
+        .timeline-item.left .timeline-icon {
+            right: -32px;
+        }
+
+        .timeline-item.right .timeline-icon {
+            left: -32px;
+        }
+
+        .timeline-content {
+            background: var(--timeline-bg);
+            padding: 20px 20px;
+            border-radius: 12px;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            max-width: 170%;
+            border: 2px solid var(--timeline-border);
+            height: 190px;
+            width: 500px;
+        }
+
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            border: 8px solid transparent;
+        }
+
+        .timeline-item.left {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item.left .timeline-content::after {
+            right: -16px;
+            border-left-color: var(--bgAlt, #f9f9f9);
+        }
+
+        .timeline-item.right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-item.right .timeline-content::after {
+            left: -16px;
+            border-right-color: var(--bgAlt, #f9f9f9);
+        }
+
+        .timeline-year {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .timeline-body {
+            font-size: 18px;
+            color: var(--muted);
+            line-height: 1.5;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 8px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px;
+                padding-right: 20px;
+                text-align: left !important;
+            }
+
+            .timeline-item.left,
+            .timeline-item.right {
+                left: 0;
+            }
+
+            .timeline-icon {
+                left: -4px !important;
+                right: auto !important;
+            }
+
+            .timeline-content::after {
+                left: -16px !important;
+                border-right-color: var(--bgAlt, #f9f9f9) !important;
+                right: auto !important;
+                border-left-color: transparent !important;
+            }
+        }
+
+        #blok1 {
+            left: 30px;
+        }
+
+        #blok2 {
+            left: -140px;
+        }
+
+        #blok3 {
+            left: 30px;
+        }
+
+        #section-title1 {
+            top: 10px;
+        }
+
+        #section-title2 {
+            top: 20px;
+        }
+
+        #section-title3 {
+            top: -40px;
+        }
+
+        .about-block {
+            background: var(--surface);
+            padding: 14px 30px;
+            border-radius: 16px;
+            margin-top: -30px;
+            width: 1160px;
+            height: 109px;
+            top: 60px;
+            position: relative;
+        }
+
+        .about-text {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--muted1);
+            -webkit-text-stroke: 0.5px var(--stroke-color);
+            margin-top: -13px;
+            left: -930px;
+            position: relative;
+            width: 176px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .about-text2 {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--muted1);
+            -webkit-text-stroke: 0.5px var(--stroke-color);
+            margin-top: -18px;
+            left: -930px;
+            position: relative;
+            width: 276px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .about-text3 {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--muted1);
+            -webkit-text-stroke: 0.5px var(--stroke-color);
+            margin-top: -20px;
+            left: -930px;
+            position: relative;
+            width: 276px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .about-text4 {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--muted1);
+            -webkit-text-stroke: 0.5px var(--stroke-color);
+            margin-top: -19px;
+            left: -930px;
+            position: relative;
+            width: 856px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .about-text5 {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--muted1);
+            -webkit-text-stroke: 0.5px var(--stroke-color);
+            margin-top: -20px;
+            left: -930px;
+            position: relative;
+            width: 246px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .about-text6 {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--muted1);
+            -webkit-text-stroke: 0.5px var(--stroke-color);
+            margin-top: -20px;
+            left: -930px;
+            position: relative;
+            width: 246px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .about-text7 {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--muted1);
+            -webkit-text-stroke: 0.5px var(--stroke-color);
+            margin-top: -20px;
+            left: -930px;
+            position: relative;
+            width: 296px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .about-text8 {
+            font-size: 20px;
+            line-height: 1.6;
+            color: var(--muted1);
+            -webkit-text-stroke: 0.5px var(--stroke-color);
+            margin-top: -20px;
+            left: -930px;
+            position: relative;
+            width: 347px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Стили строго для секции karate — не затрагивают глобальные правила */
+        .karate-section {
+            padding: 28px 0 60px;
+        }
+
+        .karate-grid {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 28px;
+            align-items: start;
+        }
+
+        @media (max-width: 980px) {
+            .karate-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .karate-left {
+            position: static;
+            /* вместо relative */
+        }
+
+
+        .photo-wrap {
+            display: inline-block;
+            position: relative;
+            max-width: 560px;
+            top: 110px;
+        }
+
+        .photo-wrap img.karateIam {
+            display: block;
+            width: 120%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            top: -190px;
+            position: relative;
+            z-index: 100;
+        }
+
+        .photo-wrap img.karate1 {
+            display: block;
+            width: 120%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            top: -920px;
+            position: relative;
+            z-index: -10000;
+            left: 700px;
+            filter: grayscale(100%);
+            opacity: 0.3;
+        }
+
+        .photo-wrap img.karate2 {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            top: -1960px;
+            position: relative;
+            z-index: -10000;
+            left: -170px;
+            filter: grayscale(100%);
+            transform: scaleY(-1);
+            opacity: 0.2;
+        }
+
+        .photo-wrap img.karate3 {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            top: -1270px;
+            position: relative;
+            z-index: -10005;
+            left: 870px;
+            filter: grayscale(100%);
+            transform: scaleY(-1);
+            opacity: 0.2;
+        }
+
+        .photo-wrap img.karate4 {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            top: -2770px;
+            position: relative;
+            z-index: -10010;
+            left: -170px;
+            filter: grayscale(100%);
+            transform: rotate(180deg);
+            opacity: 0.2;
+        }
+
+        .photo-wrap img.karate5 {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            top: -2440px;
+            position: relative;
+            z-index: -10015;
+            left: -180px;
+            filter: grayscale(100%);
+            transform: scaleY(-1);
+            opacity: 0.2;
+        }
+
+        .photo-wrap img.karate6 {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            top: -2620px;
+            position: relative;
+            z-index: -10020;
+            left: 860px;
+            filter: grayscale(100%);
+            transform: scaleX(-1);
+            opacity: 0.2;
+        }
+
+        .stats-box {
+            position: absolute;
+            bottom: 4680px;
+            left: 40%;
+            transform: translateX(8%);
+            display: flex;
+            gap: 42px;
+            align-items: center;
+            background: var(--card-bg);
+            color: var(--text);
+            padding: 35px 15px;
+            border-radius: 12px;
+            min-width: 410px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            font-weight: 610;
+            z-index: 5;
+            width: 1070px;
+        }
+
+        @media (max-width: 980px) {
+            .stats-box {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                transform: none;
+                margin-top: 12px;
+                width: 100%;
+                max-width: none;
+            }
+        }
+
+        .stats-box img.medal {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .stats-text {
+            font-size: 20px;
+            line-height: 1.2;
+            color: var(--text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            left: 147px;
+            position: relative;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* mini thumbs */
+        .mini-thumbs {
+            margin-top: 338px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .mini-thumb {
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+            width: 1548.4px;
+            height: 380px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            left: -140px;
+            position: relative;
+            z-index: 1000;
+            top: 120px;
+            left: -174px;
+        }
+
+        .mini-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(100%);
+        }
+
+        /* overlay */
+        .panel-overlay {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 32px;
+        }
+
+        .panel-overlay[aria-hidden="false"] {
+            display: flex;
+        }
+
+        .panel-close {
+            position: fixed;
+            top: 22px;
+            right: 28px;
+            background: transparent;
+            color: #fff;
+            border: 0;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 100010;
+            padding: 6px 10px;
+            border-radius: 8px;
+        }
+
+        .panel-container * {
+            box-sizing: border-box;
+        }
+
+        .panel-container {
+            display: flex;
+            overflow: hidden;
+            margin: 10px 0;
+            width: 100%;
+            max-width: 1400px;
+            height: 78vh;
+            transition: all .4s ease;
+        }
+
+        .panel {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 20px;
+            color: #fff;
+            flex: 0.6;
+            cursor: pointer;
+            position: relative;
+            margin: 0 8px;
+            transition: flex .7s cubic-bezier(0.05, 0.6, 0.4, 0.9), transform .35s ease;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+            min-width: 0;
+        }
+
+        .panel div {
+            text-shadow: 0 0 12px rgba(0, 0, 0, 0.6), 0 2px 6px rgba(0, 0, 0, 0.6);
+            font-family: Inter, Verdana, sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            opacity: 0;
+            position: absolute;
+            bottom: 30px;
+            left: 40px;
+            margin: 0;
+            transition: opacity 0s ease-in 0s;
+        }
+
+        .panel.active {
+            flex: 5;
+            transform: scale(1.02);
+        }
+
+        .panel.active div {
+            opacity: 1;
+            transition: opacity .3s ease-in .4s;
+        }
+
+        @media screen and (max-width:980px) {
+            .panel-container {
+                height: 64vh;
+            }
+
+            .panel {
+                border-radius: 14px;
+                margin: 0 6px;
+            }
+
+            .panel div {
+                font-size: 20px;
+                bottom: 18px;
+                left: 18px;
+            }
+        }
+
+        @media screen and (max-width:480px) {
+            .panel-container {
+                position: relative;
+                height: 360px;
+            }
+
+            .panel {
+                width: 10%;
+                position: relative;
+                height: 80px;
+                top: 0;
+                border: 4px solid #FFF;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 16px 20px rgba(0, 0, 0, 0.2);
+                flex: 1;
+                border-radius: 8px;
+            }
+
+            .panel.active {
+                flex: 1;
+                width: 100%;
+                position: absolute;
+                height: 360px;
+                left: 0;
+                margin: 40px 0 0;
+                z-index: 100000;
+                box-shadow: none;
+                border-radius: 12px;
+            }
+
+            .panel div {
+                font-size: 18px;
+                left: 18px;
+                bottom: 16px;
+            }
+        }
+
+        #karate {
+            position: relative;
+        }
+
+        .karate-left-strip {
+            position: absolute;
+            left: 640px;
+            top: -103px;
+            display: flex;
+            flex-direction: inherit;
+            gap: 2px;
+            z-index: 60;
+            align-items: center;
+            padding-left: 12px;
+            pointer-events: auto;
+            background: transparent;
+        }
+
+        /* превьюшки */
+        .karate-left-strip .strip-thumb {
+            border: 0;
+            padding: 0;
+            cursor: pointer;
+            width: 72px;
+            height: 82px;
+            border-radius: 10px;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .karate-left-strip .strip-thumb:focus {
+            outline: 2px solid rgba(255, 255, 255, 0.12);
+            outline-offset: 3px;
+        }
+
+        .karate-left-strip .strip-img {
+            width: 70%;
+            height: 60%;
+            object-fit: cover;
+            display: block;
+            transition: transform var(--dur) var(--ease);
+        }
+
+        .karate-left-strip .strip-thumb:hover .strip-img {
+            transform: scale(1.06);
+        }
+
+        /* мобильная версия — возвращаем полосу в поток и делаем горизонтальной */
+        @media (max-width: 980px) {
+            .karate-left-strip {
+                position: relative;
+                left: 0;
+                top: 0;
+                padding: 0;
+                flex-direction: row;
+                margin-bottom: 12px;
+                z-index: 1;
+            }
+
+            .karate-left-strip .strip-thumb {
+                width: 86px;
+                height: 86px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            }
+        }
+
+
+        .strip-thumb {
+            border: 0;
+            padding: 0;
+            background: transparent;
+            cursor: pointer;
+            width: 86px;
+            /* размер превью — меняй по вкусу */
+            height: 86px;
+            border-radius: 8px;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .strip-thumb:focus {
+            outline: 2px solid rgba(255, 255, 255, 0.12);
+            outline-offset: 3px;
+        }
+
+        .strip-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform var(--dur) var(--ease);
+        }
+
+        .strip-thumb:hover .strip-img {
+            transform: scale(1.06);
+        }
+
+        /* Адаптация: на узких экранах переместим полосу внутрь потока */
+        @media (max-width: 980px) {
+            .karate-left-strip {
+                position: relative;
+                left: 0;
+                top: 0;
+                margin-bottom: 12px;
+            }
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+        /* ===== mini galleries styles ===== */
+        .mini-galleries {
+            display: flex;
+            gap: 76px;
+            justify-content: center;
+            align-items: center;
+            margin: 18px 0 36px;
+        }
+
+        .mini-gallery-thumb {
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+            width: 330px;
+            height: 340px;
+            border-radius: 9px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+            padding: 0;
+            top: -1460px;
+            position: relative;
+        }
+
+        .mini-gallery-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-overlay {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 110000;
+            background: rgba(0, 0, 0, 0.86);
+            padding: 24px;
+        }
+
+        .gallery-overlay[aria-hidden="false"] {
+            display: flex;
+        }
+
+        .gallery-view {
+            position: relative;
+            width: 100%;
+            max-width: 980px;
+            height: 70vh;
+            background: #0b0b0b;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-slides {
+            display: flex;
+            height: 100%;
+            transition: transform .36s ease;
+            will-change: transform;
+        }
+
+        .gallery-slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .gallery-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: transparent;
+            border: 0;
+            color: #fff;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .gallery-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.06);
+            border: 0;
+            color: #fff;
+            font-size: 30px;
+            width: 56px;
+            height: 56px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .gallery-arrow.left {
+            left: 12px;
+        }
+
+        .gallery-arrow.right {
+            right: 12px;
+        }
+
+        @media (max-width:760px) {
+            .mini-gallery-thumb {
+                width: 120px;
+                height: 80px;
+            }
+
+            .gallery-view {
+                height: 56vh;
+            }
+        }
+
+        /* Серые превью -> цвет и подсветка при наведении/focus */
+        .mini-gallery-thumb img,
+        .strip-img {
+            filter: grayscale(100%) brightness(0.7);
+            transition: filter 220ms var(--ease), transform 220ms var(--ease), box-shadow 220ms var(--ease);
+            transform-origin: center;
+            display: block;
+            will-change: filter, transform, box-shadow;
+            cursor: pointer;
+            /* явный курсор */
+        }
+
+        /* Hover / focus: цвет, лёгкий зум и тень */
+        .mini-gallery-thumb:hover img,
+        .mini-gallery-thumb:focus img,
+        .strip-thumb:hover .strip-img,
+        .strip-thumb:focus .strip-img {
+            filter: none;
+            transform: scale(1.04);
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45), 0 6px 18px rgba(0, 0, 0, 0.25);
+            border-radius: 8px;
+        }
+
+        /* Доступность: видимый фокус для клавиатуры */
+        .mini-gallery-thumb:focus-visible,
+        .strip-thumb:focus-visible {
+            outline: none;
+            box-shadow: 0 26px 48px rgba(0, 0, 0, 0.5), 0 0 0 4px rgba(255, 255, 255, 0.06);
+            transform: translateY(-2px) scale(1.03);
+        }
+
+        /* Опционально: показать небольшой overlay-иконку '▶' при наведении (делает ещё более явной кликабельность) */
+        .mini-gallery-thumb {
+            position: relative;
+        }
+
+        .mini-gallery-thumb::after {
+            content: "▶";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            color: rgba(255, 255, 255, 0.0);
+            font-weight: 700;
+            font-size: 28px;
+            transition: color 180ms ease, transform 180ms ease;
+            pointer-events: none;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        .mini-gallery-thumb:hover::after,
+        .mini-gallery-thumb:focus::after {
+            color: rgba(255, 255, 255, 0.92);
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* ---------- Inline (in-place) gallery styles ---------- */
+        .inline-gallery {
+            width: 100%;
+            max-width: 980px;
+            margin: 18px auto 36px;
+            display: none;
+            /* hidden by default */
+            border-radius: 12px;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.25));
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .inline-gallery[aria-hidden="false"] {
+            display: block;
+        }
+
+        .inline-gallery-view {
+            position: relative;
+            height: 340px;
+            /* подстрой при необходимости */
+            background: #0b0b0b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .inline-slides {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            transition: transform .36s ease;
+            will-change: transform;
+        }
+
+        .inline-slide {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* arrows / close */
+        .inline-close {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: transparent;
+            border: 0;
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+            z-index: 6;
+        }
+
+        .inline-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.06);
+            border: 0;
+            color: #fff;
+            font-size: 28px;
+            width: 48px;
+            height: 48px;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .inline-arrow.left {
+            left: 8px;
+        }
+
+        .inline-arrow.right {
+            right: 8px;
+        }
+
+        /* counter */
+        .inline-counter {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.45);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 13px;
+            z-index: 6;
+        }
+
+        /* responsive */
+        @media (max-width:760px) {
+            .inline-gallery-view {
+                height: 220px;
+            }
+
+            .inline-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 22px;
+            }
+
+            .inline-gallery {
+                margin: 12px 8px 24px;
+            }
+        }
+
+        /* --- in-place mini carousel styles --- */
+        .mini-galleries-inline {
+            display: grid;
+            gap: 26px;
+            justify-content: center;
+            align-items: center;
+            margin: -4202px 0 36px;
+        }
+
+        .mini-carousel {
+            position: relative;
+            width: 990px;
+            height: 560px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+        }
+
+        .mini-frame {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .mini-current {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(100%) brightness(0.78);
+            transition: filter 220ms var(--ease), transform 220ms var(--ease);
+            cursor: default;
+        }
+
+        /* arrows */
+        .mini-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 6;
+            background: rgba(255, 255, 255, 0.06);
+            border: 0;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .mini-arrow.left {
+            left: 8px;
+        }
+
+        .mini-arrow.right {
+            right: 8px;
+        }
+
+        /* counter */
+        .mini-counter {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.45);
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 12px;
+            z-index: 6;
+        }
+
+        /* hover/focus visual affordance (keeps size unchanged) */
+        .mini-carousel:focus-within,
+        .mini-carousel:hover {
+            outline: none;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .mini-carousel:focus-within .mini-current,
+        .mini-carousel:hover .mini-current {
+            filter: none;
+            transform: scale(1.02);
+        }
+
+        /* keyboard focus ring */
+        .mini-carousel:focus {
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.04), 0 18px 36px rgba(0, 0, 0, 0.35);
+        }
+
+        /* responsive */
+        @media (max-width:760px) {
+            .mini-carousel {
+                width: 120px;
+                height: 80px;
+            }
+
+            .mini-arrow {
+                width: 34px;
+                height: 34px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="nav-actions">
+                <button id="themeToggle" class="btn" title="Toggle theme">☀</button>
+                <nav aria-label="Main nav">
+                    <a href="#expertise">Expertise</a>
+                    <a href="#history" style="margin-left:12px">History</a>
+                    <a href="#projects" style="margin-left:12px">Projects</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero" id="hero">
+            <img class="hero-img dark"
+                src="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/photo_2025-09-27_17-26-38(1).jpg"
+                alt="dark theme image">
+            <img class="hero-img light"
+                src="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/photo_2025-09-27_17-19-23(1).jpg"
+                alt="light theme image">
+
+            <div class="hero-inner container">
+                <div class="left">
+                    <div class="avatar"><img
+                            src="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/%D1%8F%D1%8F(1).jpg"
+                            alt="avatar"></div>
+                </div>
+                <div class="hero-title">
+                    <h1 class="hero-name">Valerie</h1>
+                    <p class="hero-sub">Personal Projects Developer</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="karate">
+            <div class="container karate-section">
+                <div class="karate-grid">
+                    <div class="karate-left">
+                        <div class="photo-wrap">
+                            <div class="karate-left-strip" aria-hidden="false" role="list">
+                                <button class="strip-thumb" data-open-index="0" aria-label="image 1">
+                                    <img class="strip-img"
+                                        data-light="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/KB.png"
+                                        data-dark="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/KW.png"
+                                        alt="thumb 1">
+                                </button>
+                                <button class="strip-thumb" data-open-index="1" aria-label="image 2">
+                                    <img class="strip-img"
+                                        data-light="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/AB.png"
+                                        data-dark="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/AW.png"
+                                        alt="thumb 2">
+                                </button>
+                                <button class="strip-thumb" data-open-index="2" aria-label="image 3">
+                                    <img class="strip-img"
+                                        data-light="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/RB.png"
+                                        data-dark="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/RW.png"
+                                        alt="thumb 3">
+                                </button>
+                                <button class="strip-thumb" data-open-index="3" aria-label="image 4">
+                                    <img class="strip-img"
+                                        data-light="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/A2B.png"
+                                        data-dark="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/A2W.png"
+                                        alt="thumb 4">
+                                </button>
+                                <button class="strip-thumb" data-open-index="4" aria-label="image 5">
+                                    <img class="strip-img"
+                                        data-light="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/TB.png"
+                                        data-dark="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/TW.png"
+                                        alt="thumb 5">
+                                </button>
+                                <button class="strip-thumb" data-open-index="5" aria-label="image 6">
+                                    <img class="strip-img"
+                                        data-light="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/EB.png"
+                                        data-dark="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/EW.png"
+                                        alt="thumb 5">
+                                </button>
+                            </div>
+                            <!-- END -->
+
+                            <img class="karateIam" id="karate1"
+                                src="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/camurai.png"
+                                alt="karate">
+                            <img class="karate1" id="karate2"
+                                src="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/tigr.png"
+                                alt="karate">
+                            <img class="karate2" id="karate3"
+                                src="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/cvetii.png"
+                                alt="karate">
+                            <img class="karate3" id="karate4"
+                                src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/flaverss1.png?raw=true"
+                                alt="karate">
+                            <img class="karate4" id="karate5"
+                                src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/flaverss2.png?raw=true"
+                                alt="karate">
+                            <img class="karate5" id="karate6"
+                                src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/flaverss3.png?raw=true"
+                                alt="karate">
+                            <!-- Стат-блок -->
+                            <div class="stats-box" aria-hidden="false">
+                                <img class="medal"
+                                    src="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/medali.png"
+                                    alt="medals">
+                                <div class="stats-text"><span style="color: rgb(128, 0, 0); font-size: 1.5em;">11</span>
+                                    years of training
+                                </div>
+                                <div class="stats-text"> <span style="color: rgb(128, 0, 0);font-size: 1.5em;">32</span>
+                                    tournaments
+                                </div>
+                                <div class="stats-text"><span style="color: rgb(128, 0, 0);font-size: 1.5em;">45</span>
+                                    medals (22
+                                    international)
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==== MINI GALLERIES (вставить под секцией каратэ) ==== -->
+            <!-- ==== IN-PLACE MINI CAROUSELS (заменяет старые .mini-galleries + galleryOverlay) ==== -->
+            <div class="container">
+                <div class="mini-galleries-inline" aria-hidden="false">
+                    <!-- carousel 1 -->
+                    <div class="mini-carousel" data-gallery="1" tabindex="0" aria-label="Mini gallery 1">
+                        <button class="mini-arrow left" aria-label="Previous image">◀</button>
+                        <div class="mini-frame">
+                            <img class="mini-current"
+                                src="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(15).png"
+                                alt="Gallery 1 image">
+                        </div>
+                        <button class="mini-arrow right" aria-label="Next image">▶</button>
+                        <div class="mini-counter" aria-hidden="true">1 / 4</div>
+                    </div>
+
+                    <!-- carousel 2 -->
+                    <div class="mini-carousel" data-gallery="2" tabindex="0" aria-label="Mini gallery 2">
+                        <button class="mini-arrow left" type="button" aria-label="Previous image">◀</button>
+                        <div class="mini-frame">
+                            <img class="mini-current"
+                                src="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(11).png"
+                                alt="Gallery 2 image">
+                        </div>
+                        <button class="mini-arrow right" aria-label="Next image">▶</button>
+                        <div class="mini-counter" aria-hidden="true">1 / 4</div>
+                    </div>
+
+                    <!-- carousel 3 -->
+                    <div class="mini-carousel" data-gallery="3" tabindex="0" aria-label="Mini gallery 3">
+                        <button class="mini-arrow left" type="button" aria-label="Previous image">◀</button>
+                        <div class="mini-frame">
+                            <img class="mini-current"
+                                src="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/photo_2025-09-27_17-26-38(1).jpg"
+                                alt="Gallery 3 image">
+                        </div>
+                        <button class="mini-arrow right" aria-label="Next image">▶</button>
+                        <div class="mini-counter" aria-hidden="true">1 / 4</div>
+                    </div>
+                </div>
+            </div>
+            <!-- ==== END IN-PLACE MINI CAROUSELS ==== -->
+
+            <!-- Конец inline gallery -->
+
+            <!-- ==== END MINI GALLERIES ==== -->
+
+            <!-- FULLSCREEN PANEL VIEWER (overlay) -->
+            <div id="panelOverlay" class="panel-overlay" aria-hidden="true" role="dialog" aria-modal="true"
+                aria-label="Gallery viewer">
+                <button id="panelClose" class="panel-close" aria-label="Close viewer">✕</button>
+
+                <div class="panel-container" role="list">
+                    <!-- Панели — заменяй URLы на любые фотографии с турниров -->
+                    <div class="panel" data-index="0"
+                        style="background-image: url('https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(15).png')">
+                        <div>Kyiv Open — Semi-final</div>
+                    </div>
+                    <div class="panel" data-index="1"
+                        style="background-image: url('https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(9).png')">
+                        <div>International Cup — Final</div>
+                    </div>
+                    <div class="panel" data-index="2"
+                        style="background-image: url('https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/photo_2025-09-27_17-26-38(1).jpg')">
+                        <div>Action Shot — Throw</div>
+                    </div>
+                    <div class="panel" data-index="3"
+                        style="background-image: url('https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(12).png')">
+                        <div>Podium — Medal</div>
+                    </div>
+                    <div class="panel" data-index="4"
+                        style="background-image: url('https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(11).png')">
+                        <div>Coach Corner</div>
+                    </div>
+                    <div class="panel" data-index="5"
+                        style="background-image: url('https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(10).png')">
+                        <div>Warm-up</div>
+                    </div>
+                    <div class="panel" data-index="6"
+                        style="background-image: url('https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/medali.png')">
+                        <div>Medals</div>
+                    </div>
+                    <div class="panel" data-index="7"
+                        style="background-image: url('https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/photo_2025-09-27_17-19-23(1).jpg')">
+                        <div>Team Photo</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <section id="expertise">
+                <div class="container">
+                    <div class="section-title" id="section-title1">Expertise</div>
+
+                    <div class="expertise-grid" aria-live="polite">
+
+                        <div class="expertise-card" role="article" aria-labelledby="exp-frontend">
+                            <img class="card-img" id="card-img1"
+                                data-dark="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(15).png"
+                                data-light="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(9).png"
+                                alt="Frontend thumbnail">
+                            <h4 id="exp-frontend">Frontend</h4>
+                            <p>HTML, CSS, vanilla JavaScript - DOM manipulation, responsive layouts (Flexbox / Grid),
+                                and
+                                basic accessibility.</p>
+                            <div class="small-muted">Experienced in building interactive UI with client-side JS and
+                                debugging in Chrome DevTools.</div>
+                            <div class="skill-list">
+                                <span class="skill">HTML</span>
+                                <span class="skill">CSS</span>
+                                <span class="skill">JavaScript</span>
+                            </div>
+                        </div>
+
+                        <div class="expertise-card" role="article" aria-labelledby="exp-backend">
+                            <img class="card-img" id="card-img2"
+                                data-dark="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/%D0%B2%D0%B2%D0%B2%D0%B2.png"
+                                data-light="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(10).png"
+                                alt="Backend thumbnail">
+                            <h4 id="exp-backend">Backend</h4>
+                            <p>Understanding of HTTP, REST, and working with JSON APIs using fetch/async JS; learning
+                                basics
+                                of Node.js and simple server endpoints.</p>
+                            <div class="small-muted">Able to connect frontends to APIs and handle client-side data
+                                flows.
+                            </div>
+                            <div class="skill-list">
+                                <span class="skill">HTTP / REST</span>
+                                <span class="skill">fetch / async</span>
+                                <span class="skill">Node.js (learning)</span>
+                            </div>
+                        </div>
+
+                        <div class="expertise-card" role="article" aria-labelledby="exp-design">
+                            <img class="card-img" id="card-img3"
+                                data-dark="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(12).png"
+                                data-light="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(11).png"
+                                alt="Design thumbnail">
+                            <h4 id="exp-design">Design &amp; UX</h4>
+                            <p>Mobile-first responsive layouts with HTML/CSS, simple prototyping, and basic usability
+                                practices.</p>
+                            <div class="small-muted">Focus on clear layouts, readable typography and pleasant spacing.
+                            </div>
+                            <div class="skill-list">
+                                <span class="skill">Responsive design</span>
+                                <span class="skill">Prototyping</span>
+                                <span class="skill">Usability basics</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="history">
+                <div class="container">
+                    <div class="section-title" id="section-title2">Study History</div>
+                    <div class="timeline">
+                        <div class="timeline-item right">
+                            <div class="timeline-icon">🕮</div>
+                            <div class="timeline-content" id="blok1">
+                                <div class="timeline-year">2025</div>
+                                <div class="timeline-body">
+                                    Creating Games &amp; Tools - applied my skills in web development to design
+                                    interactive
+                                    projects combining math, probability, and visualization.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item left">
+                            <div class="timeline-icon">🕮</div>
+                            <div class="timeline-content" id="blok2">
+                                <div class="timeline-year">2024</div>
+                                <div class="timeline-body">
+                                    Learning by Doing - focused on self-study: coding challenges, experiments, and
+                                    building
+                                    small apps from scratch.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item right">
+                            <div class="timeline-icon">🕮</div>
+                            <div class="timeline-content" id="blok3">
+                                <div class="timeline-year">2023</div>
+                                <div class="timeline-body">
+                                    Curiosity Sparked - first experiments with HTML &amp; CSS, realized I want to grow
+                                    as a
+                                    developer.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects">
+                <div class="container">
+                    <div class="section-title" id="section-title3">Personal Projects</div>
+                    <div class="projects-grid" id="projectsGrid" role="list" aria-live="polite"></div>
+                </div>
+            </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const projects = [
+                { id: 1, title: 'Game Of Probabilities', description: 'A cosmic probability adventure - explore dice, coins, combinatorics and random events through playful mini-games.', tech: ['HTML', 'CSS', 'JS'], img: 'https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/Untitled1%20(1).png', demo: 'https://valeriiaanisimova.github.io/game-of-probabilities/' },
+                { id: 2, title: 'Poker Game', description: 'The game offers various modes, including hints, auto-scoring, team play, and random events, providing a dynamic and engaging experience.', tech: ['HTML', 'CSS', 'JS'], img: 'https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/Untitled1%20(3).png', demo: 'https://valeriiaanisimova.github.io/poker-game/' },
+                { id: 3, title: 'Compression Game', description: 'Save the "Myauriner" space station from a black hole by mastering data compression techniques: RLE, Huffman coding, LZW archiving, and image optimization.', tech: ['HTML', 'CSS', 'JS'], img: 'https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/snapedit_1758999060054.jpeg', demo: 'https://valeriiaanisimova.github.io/compression-game-project/' },
+                { id: 4, title: 'Markov Сhains', description: 'Interactive Snake game where the snake learns to play using Markov chains, adapting its moves probabilistically based on previous successes.', tech: ['HTML', 'CSS', 'JS'], img: 'https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/snapedit_1758999094361.jpeg', demo: 'https://valeriiaanisimova.github.io/Markov_chains/' },
+                { id: 5, title: 'Lunar Cycle And Menstruation', description: 'A data-driven tool exploring correlations between lunar phases and menstrual cycles.', tech: ['HTML', 'CSS', 'JS'], img: 'https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/Untitled1.png', demo: 'https://valeriiaanisimova.github.io/Correlation-between-lunar-cycle-and-menstruation/' },
+                { id: 6, title: 'Theory Of Graphs', description: 'Graph theory project that visualizes and analyzes biorhythm cycles, allowing users to explore physical, emotional, and intellectual patterns over time.', tech: ['HTML', 'CSS', 'JS'], img: 'https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/snapedit_1758999160391.jpeg', demo: 'https://valeriiaanisimova.github.io/-Theory-Of-Graphs-project/' },
+                { id: 7, title: 'Compression', description: 'Applications of data compression algorithms, including melody generation using Huffman coding, rhythm creation with RLE, and avatar design based on text input.', tech: ['HTML', 'CSS', 'JS'], img: 'https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/snapedit_1758999175174.jpeg', demo: 'https://valeriiaanisimova.github.io/compression-project/' },
+                { id: 8, title: 'Fractals', description: 'Interactive contact map visualizer that uses a fractal tree layout to display and explore your social connections.', tech: ['HTML', 'CSS', 'JS'], img: 'https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/snapedit_1758999193791.jpeg', demo: 'https://valeriiaanisimova.github.io/fractals-project/' },
+                { id: 9, title: 'Probability', description: 'Web app for calculating and visualizing probability metrics like conditional, joint, and sequential probabilities.', tech: ['HTML', 'CSS', 'JS'], img: 'https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/snapedit_1758999217511.jpeg', demo: 'https://valeriiaanisimova.github.io/probability/' },
+                { id: 10, title: 'Game Theory', description: 'Explores core game theory concepts with visual examples and strategy simulations.', tech: ['HTML', 'CSS', 'JS'], img: 'https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/snapedit_1758999232235.jpeg', demo: 'https://valeriiaanisimova.github.io/game_theory/' },
+                { id: 11, title: 'Fractals Live', description: 'Explores fractal patterns in real-time with customizable parameters.', tech: ['HTML', 'CSS', 'JS'], img: 'https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/snapedit_1758999250797.jpeg', demo: 'https://valeriiaanisimova.github.io/fractals-live/' },
+                { id: 12, title: 'Probability Project', description: 'Built a probability calculator with simulations and visualizations.', tech: ['HTML', 'CSS', 'JS'], img: 'https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/snapedit_1758999268179.jpeg', demo: 'https://valeriiaanisimova.github.io/probability-project/' },
+            ];
+
+            const projectsGrid = document.getElementById('projectsGrid');
+            if (projectsGrid) {
+                projectsGrid.innerHTML = '';
+                projects.forEach(p => {
+                    const card = document.createElement('div');
+                    card.className = 'project';
+                    card.tabIndex = 0;
+                    card.innerHTML = `
+                <img class="thumb" src="${p.img}" alt="${p.title}">
+                <div class="p-body">
+                  <div class="p-title">${p.title}</div>
+                  <div class="p-desc muted">${p.description}</div>
+                  <div class="chips">${p.tech.map(t => `<div class="chip">${t}</div>`).join('')}</div>
+                </div>`;
+                    card.addEventListener('click', () => {
+                        if (p.demo) window.open(p.demo, '_blank');
+                        else alert('Ссылка на проект недоступна');
+                    });
+                    projectsGrid.appendChild(card);
+                });
+            }
+
+            const themeBtn = document.getElementById('themeToggle');
+            function updateExpertiseImages(theme) {
+                document.querySelectorAll('.card-img').forEach(img => {
+                    const darkSrc = img.dataset.dark;
+                    const lightSrc = img.dataset.light;
+                    if (theme === 'light' && lightSrc) img.src = lightSrc;
+                    else if (theme === 'dark' && darkSrc) img.src = darkSrc;
+                });
+            }
+
+            function updateKarateStripImages(theme) {
+                document.querySelectorAll('.strip-img').forEach(img => {
+                    const darkSrc = img.dataset.dark;
+                    const lightSrc = img.dataset.light;
+                    if (theme === 'light' && lightSrc) img.src = lightSrc;
+                    else if (theme === 'dark' && darkSrc) img.src = darkSrc;
+                    else if (lightSrc) img.src = lightSrc;
+                });
+            }
+
+            function applyTheme(t) {
+                document.documentElement.setAttribute('data-theme', t);
+                try { localStorage.setItem('theme', t); } catch (e) { }
+                if (themeBtn) themeBtn.textContent = t === 'dark' ? '☀' : '⏾';
+                updateKarateStripImages(t);
+                updateExpertiseImages(t);
+            }
+            (function initTheme() {
+                const saved = (function () { try { return localStorage.getItem('theme'); } catch (e) { return null; } })() || 'dark';
+                applyTheme(saved);
+            })();
+            if (themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    const cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                    applyTheme(cur);
+                });
+            }
+
+            console.info('Portfolio script loaded (overlay отключён).');
+        });
+
+        /* ===== mini-carousels: delegation + independent state per carousel ===== */
+        (function () {
+            const mapping = (window.__miniGalleries && Object.keys(window.__miniGalleries).length) ? window.__miniGalleries : {
+                '1': [
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate9.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate1.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate5.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/tren6.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate4.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/tren7.jpg?raw=true',
+                ],
+                '2': [
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate2.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate11.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate3.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/tren1.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/tren3.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/tren4.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/tren5.jpg?raw=true',
+                ],
+                '3': [
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate7.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karkar7.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karkar2.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karkar4.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karkar3.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karkar5.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karkar6.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karkar1.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karkar10.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karkar9.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karkar11.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate8.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karkar8.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate12.jpg?raw=true',
+                ]
+            };
+
+            // State store: Map from carousel element -> { idx, imgs, imgEl, counter }
+            const state = new Map();
+
+            // initialize each carousel DOM (render initial image + store refs)
+            document.querySelectorAll('.mini-carousel').forEach(car => {
+                const id = car.dataset.gallery;
+                const imgs = mapping[id] || [];
+                if (!imgs.length) return;
+
+                const imgEl = car.querySelector('.mini-current');
+                const counter = car.querySelector('.mini-counter');
+
+                const data = {
+                    idx: 0,
+                    imgs,
+                    imgEl,
+                    counter,
+                    el: car
+                };
+                state.set(car, data);
+
+                // initial render
+                if (imgEl) imgEl.src = imgs[0];
+                if (counter) counter.textContent = `1 / ${imgs.length}`;
+
+                // Add click listeners for arrows INSIDE this specific carousel
+                const leftBtn = car.querySelector('.mini-arrow.left');
+                const rightBtn = car.querySelector('.mini-arrow.right');
+
+                if (leftBtn) {
+                    leftBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        changeIndexForCarousel(car, -1);
+                    });
+                }
+
+                if (rightBtn) {
+                    rightBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        changeIndexForCarousel(car, 1);
+                    });
+                }
+
+                // keyboard navigation when this carousel is focused
+                car.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') {
+                        e.preventDefault();
+                        changeIndexForCarousel(car, -1);
+                    } else if (e.key === 'ArrowRight') {
+                        e.preventDefault();
+                        changeIndexForCarousel(car, 1);
+                    }
+                });
+
+                // touch swipe for this carousel
+                let startX = null;
+                car.addEventListener('touchstart', (e) => {
+                    if (!e.touches || !e.touches[0]) return;
+                    startX = e.touches[0].clientX;
+                }, { passive: true });
+
+                car.addEventListener('touchend', (e) => {
+                    if (startX === null) return;
+                    const dx = e.changedTouches[0].clientX - startX;
+                    startX = null;
+                    if (Math.abs(dx) > 30) {
+                        changeIndexForCarousel(car, dx > 0 ? -1 : 1);
+                    }
+                }, { passive: true });
+            });
+
+            // helper: change index for given carousel element by delta (-1 or +1)
+            function changeIndexForCarousel(carEl, delta) {
+                const d = state.get(carEl);
+                if (!d) return;
+                d.idx = ((d.idx + delta) % d.imgs.length + d.imgs.length) % d.imgs.length;
+                if (d.imgEl) d.imgEl.src = d.imgs[d.idx];
+                if (d.counter) d.counter.textContent = `${d.idx + 1} / ${d.imgs.length}`;
+            }
+        })();
+
+
+
+
+        // additionally, disable any existing mini-gallery click handlers that call showGallery by capturing clicks
+        document.querySelectorAll('.mini-gallery-thumb, .mini-gallery').forEach(el => {
+            el.addEventListener('click', (e) => {
+                // only stop if the element is inside a .mini-carousel replacement — otherwise do nothing
+                if (el.closest && el.closest('.mini-carousel')) {
+                    e.stopImmediatePropagation();
+                    e.preventDefault();
+                }
+            }, { capture: true });
+        });
+
+
+
+    </script>
+
+
+</body>
+
+</html>
