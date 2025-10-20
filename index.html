@@ -14,11 +14,13 @@
         :root {
             --bg: rgb(24, 24, 24);
             --surface: #3e3c39;
+            --surface1:#c0805c;
             --text: #ffffff;
             --muted: var(--text);
             --muted1: #554a4b;
             --stroke-color: rgb(255, 255, 255);
             --card-bg: var(--surface);
+            --card-bg1: var(--surface1);
             --accent1: #000;
             --accent2: #e0dfdf;
             --gradient: linear-gradient(135deg, var(--accent1), var(--accent2));
@@ -54,6 +56,7 @@
             --muted1: #c4c0b7;
             --stroke-color: rgb(0, 0, 0);
             --card-bg: #cac2b9;
+            --card-bg1: #ffb58c;
             --card-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
 
             --header-bg: #ffffff;
@@ -796,6 +799,7 @@
             top: -190px;
             position: relative;
             z-index: 100;
+            left: -177px;
         }
 
         .photo-wrap img.karate1 {
@@ -818,7 +822,7 @@
             height: auto;
             border-radius: 12px;
             object-fit: cover;
-            top: -640px;
+            top: -1360px;
             position: relative;
             z-index: -10000;
             left: -310px;
@@ -919,12 +923,12 @@
         .stats-box {
             position: absolute;
             bottom: 2030px;
-            left: 40%;
+            left: 10%;
             transform: translateX(8%);
             display: flex;
-            gap: 42px;
+            gap: 132px;
             align-items: center;
-            background: var(--card-bg);
+            background: var(--card-bg1);
             color: var(--text);
             padding: 35px 15px;
             border-radius: 12px;
@@ -933,18 +937,18 @@
             border: 1px solid rgba(255, 255, 255, 0.03);
             font-weight: 610;
             z-index: 5;
-            width: 1070px;
+            width: 1230px;
         }
 
         .stats-box1 {
             position: absolute;
-            bottom: 2269px;
-            left: 23%;
+            bottom: 764px;
+            left: -8%;
             transform: translateX(8%);
             display: flex;
-            gap: 42px;
+            gap: 132px;
             align-items: center;
-            background: var(--card-bg);
+            background: var(--card-bg1);
             color: var(--text);
             padding: 61px 15px;
             border-radius: 12px;
@@ -953,7 +957,7 @@
             border: 1px solid rgba(255, 255, 255, 0.03);
             font-weight: 610;
             z-index: 5;
-            width: 1140px;
+            width: 1390px;
         }
 
         @media (max-width: 980px) {
@@ -982,7 +986,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            left: 147px;
+            left: 107px;
             position: relative;
             font-family: 'Playfair Display', serif;
         }
@@ -994,7 +998,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            left: 267px;
+            left: 107px;
             position: relative;
             font-family: 'Playfair Display', serif;
             top: -30px;
@@ -1191,8 +1195,8 @@
 
         .chess-left-strip {
             position: absolute;
-            left: 640px;
-            top: 267px;
+            left: 190px;
+            top: -933px;
             display: flex;
             flex-direction: inherit;
             gap: 42px;
@@ -1274,9 +1278,8 @@
             padding: 0;
             background: transparent;
             cursor: pointer;
-            width: 86px;
-            /* размер превью — меняй по вкусу */
-            height: 86px;
+            width: 56px;
+            height: 66px;
             border-radius: 8px;
             overflow: hidden;
             display: inline-flex;
@@ -1612,7 +1615,7 @@
             gap: 26px;
             justify-content: center;
             align-items: center;
-            margin: -1522px 0 36px;
+            margin: -992px 0 36px;
         }
 
         .mini-galleries-inline1 {
@@ -1625,8 +1628,8 @@
 
         .mini-carousel {
             position: relative;
-            width: 990px;
-            height: 560px;
+            width: 730px;
+            height: 450px;
             border-radius: 10px;
             overflow: hidden;
             background: var(--card-bg);
@@ -1634,12 +1637,14 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+            top: -1043px;
+            left: 290px;
+            z-index: -10;
         }
 
         .mini-carousel1 {
-            position: relative;
-            width: 990px;
-            height: 560px;
+            width: 769px;
+            height: 490px;
             border-radius: 10px;
             overflow: hidden;
             background: var(--card-bg);
@@ -1666,6 +1671,8 @@
             filter: grayscale(100%) brightness(0.78);
             transition: filter 220ms var(--ease), transform 220ms var(--ease);
             cursor: default;
+            top: 0px;
+            position: relative;
         }
 
         /* arrows */
@@ -1840,11 +1847,12 @@
             height: 430px;
             border-radius: 12px;
             object-fit: cover;
-            top: 160px;
+            top: -1070px;
             position: relative;
             z-index: 10000;
-            left: -30px;
+            left: 647px;
             filter: grayscale(100%);
+            transform: scaleX(-1);
         }
 
         /* Исправление для второй карусели - серые изображения и цвет при наведении */
@@ -1862,6 +1870,8 @@
         .mini-carousel1 {
             position: relative;
             z-index: 10;
+            top: 853px;
+            left: -339px;
         }
 
         /* Для отладки - можно временно добавить контур */
@@ -2000,29 +2010,6 @@
                         </div>
                         <button class="mini-arrow right" aria-label="Next image">▶</button>
                     </div>
-
-                    <!-- carousel 2 -->
-                    <div class="mini-carousel" data-gallery="2" tabindex="0" aria-label="Mini gallery 2">
-                        <button class="mini-arrow left" type="button" aria-label="Previous image">◀</button>
-                        <div class="mini-frame">
-                            <img class="mini-current"
-                                src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate2.jpg?raw=true"
-                                alt="Gallery 2 image">
-                        </div>
-                        <button class="mini-arrow right" aria-label="Next image">▶</button>
-
-                    </div>
-
-                    <!-- carousel 3 -->
-                    <div class="mini-carousel" data-gallery="3" tabindex="0" aria-label="Mini gallery 3">
-                        <button class="mini-arrow left" type="button" aria-label="Previous image">◀</button>
-                        <div class="mini-frame">
-                            <img class="mini-current"
-                                src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate7.jpg?raw=true"
-                                alt="Gallery 3 image">
-                        </div>
-                        <button class="mini-arrow right" aria-label="Next image">▶</button>
-                    </div>
                 </div>
             </div>
             <!-- ==== END IN-PLACE MINI CAROUSELS ==== -->
@@ -2121,12 +2108,6 @@
                             alt="thumb 5">
                     </button>
                 </div>
-
-                <img class="chess10" id="chess20"
-                    src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/fon1.png?raw=true" alt="karate">
-                <img class="chess20" id="chess30"
-                    src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/fon2.png?raw=true" alt="karate">
-
             </div>
 
             <div class="container">
@@ -2138,28 +2119,6 @@
                             <img class="mini-current1"
                                 src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate9.jpg?raw=true"
                                 alt="Gallery 1 image" style="width: 1000px; height: 750px;">
-                        </div>
-                        <button class="mini-arrow right1" aria-label="Next image">▶</button>
-                    </div>
-
-                    <!-- carousel 2 -->
-                    <div class="mini-carousel1" data-gallery="2" tabindex="0" aria-label="Mini gallery 2">
-                        <button class="mini-arrow left1" type="button" aria-label="Previous image">◀</button>
-                        <div class="mini-frame1">
-                            <img class="mini-current1"
-                                src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate2.jpg?raw=true"
-                                alt="Gallery 2 image" style="width: 900px; height: 750px;">
-                        </div>
-                        <button class="mini-arrow right1" aria-label="Next image">▶</button>
-                    </div>
-
-                    <!-- carousel 3 -->
-                    <div class="mini-carousel1" data-gallery="3" tabindex="0" aria-label="Mini gallery 3">
-                        <button class="mini-arrow left1" type="button" aria-label="Previous image">◀</button>
-                        <div class="mini-frame1">
-                            <img class="mini-current1"
-                                src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate7.jpg?raw=true"
-                                alt="Gallery 3 image">
                         </div>
                         <button class="mini-arrow right1" aria-label="Next image">▶</button>
                     </div>
@@ -2368,23 +2327,20 @@
         (function () {
             const mapping = {
                 '1': [
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate2.jpg?raw=true',
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate9.jpg?raw=true',
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate1.jpg?raw=true',
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate5.jpg?raw=true',
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/tren6.jpg?raw=true',
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate4.jpg?raw=true',
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/tren7.jpg?raw=true',
-                ],
-                '2': [
-                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate2.jpg?raw=true',
+
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate11.jpg?raw=true',
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate3.jpg?raw=true',
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/tren1.jpg?raw=true',
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/tren3.jpg?raw=true',
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/tren4.jpg?raw=true',
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/tren5.jpg?raw=true',
-                ],
-                '3': [
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate7.jpg?raw=true',
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karkar7.jpg?raw=true',
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karkar2.jpg?raw=true',
@@ -2491,12 +2447,8 @@
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/chesss1.jpg?raw=true',
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/chesss3.jpg?raw=true',
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/chesss6.jpg?raw=true',
-                ],
-                '2': [
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/chesss7.jpg?raw=true',
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/chesss2.jpg?raw=true',
-                ],
-                '3': [
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/chesss4.jpg?raw=true',
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/chesss5.jpg?raw=true',
                 ]
@@ -2595,4 +2547,3 @@
 </body>
 
 </html>
-
