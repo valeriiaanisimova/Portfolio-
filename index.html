@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --bg: rgb(24, 24, 24);
@@ -18,7 +20,6 @@
             --stroke-color: rgb(255, 255, 255);
             --card-bg: var(--surface);
             --accent1: #000;
-            ;
             --accent2: #e0dfdf;
             --gradient: linear-gradient(135deg, var(--accent1), var(--accent2));
 
@@ -93,6 +94,12 @@
         .container {
             max-width: var(--max-w);
             margin: 42px auto;
+            padding: 0 var(--pad-x);
+        }
+
+        .container1 {
+            max-width: var(--max-w);
+            margin: 112px auto;
             padding: 0 var(--pad-x);
         }
 
@@ -275,9 +282,17 @@
             font-weight: 800;
             margin-bottom: 8px;
             color: var(--text);
-            left: -1320px;
+            left: -120px;
             position: relative;
-            top: -11px;
+        }
+
+        .section-title1 {
+            font-size: 75px;
+            font-weight: 1050;
+            margin-bottom: -2px;
+            color: var(--text);
+            left: 330px;
+            position: relative;
         }
 
         .muted {
@@ -618,6 +633,14 @@
             top: 10px;
         }
 
+        #section-title11 {
+            top: -60px;
+            font-family: "Press Start 2P", monospace;
+            font-size: 40px;
+            color: #fff;
+            text-shadow: 2px 2px 0 #000;
+        }
+
         #section-title2 {
             top: 20px;
         }
@@ -789,6 +812,20 @@
             opacity: 0.3;
         }
 
+        .chess10 {
+            display: block;
+            width: 120%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            top: -640px;
+            position: relative;
+            z-index: -10000;
+            left: -310px;
+            filter: grayscale(100%);
+            opacity: 0.3;
+        }
+
         .photo-wrap img.karate2 {
             display: block;
             width: 100%;
@@ -799,6 +836,21 @@
             position: relative;
             z-index: -10000;
             left: -170px;
+            filter: grayscale(100%);
+            transform: scaleY(-1);
+            opacity: 0.2;
+        }
+
+        .chess20 {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            top: -1490px;
+            position: relative;
+            z-index: -10000;
+            left: 290px;
             filter: grayscale(100%);
             transform: scaleY(-1);
             opacity: 0.2;
@@ -866,7 +918,7 @@
 
         .stats-box {
             position: absolute;
-            bottom: 4680px;
+            bottom: 2030px;
             left: 40%;
             transform: translateX(8%);
             display: flex;
@@ -882,6 +934,26 @@
             font-weight: 610;
             z-index: 5;
             width: 1070px;
+        }
+
+        .stats-box1 {
+            position: absolute;
+            bottom: 2269px;
+            left: 23%;
+            transform: translateX(8%);
+            display: flex;
+            gap: 42px;
+            align-items: center;
+            background: var(--card-bg);
+            color: var(--text);
+            padding: 61px 15px;
+            border-radius: 12px;
+            min-width: 410px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            font-weight: 610;
+            z-index: 5;
+            width: 1140px;
         }
 
         @media (max-width: 980px) {
@@ -913,6 +985,19 @@
             left: 147px;
             position: relative;
             font-family: 'Playfair Display', serif;
+        }
+
+        .stats-text-chess {
+            font-size: 20px;
+            line-height: 1.2;
+            color: var(--text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            left: 267px;
+            position: relative;
+            font-family: 'Playfair Display', serif;
+            top: -30px;
         }
 
         /* mini thumbs */
@@ -1086,6 +1171,10 @@
             position: relative;
         }
 
+        #chess {
+            position: relative;
+        }
+
         .karate-left-strip {
             position: absolute;
             left: 640px;
@@ -1096,6 +1185,20 @@
             z-index: 60;
             align-items: center;
             padding-left: 12px;
+            pointer-events: auto;
+            background: transparent;
+        }
+
+        .chess-left-strip {
+            position: absolute;
+            left: 640px;
+            top: 267px;
+            display: flex;
+            flex-direction: inherit;
+            gap: 42px;
+            z-index: 60;
+            align-items: center;
+            padding-left: 82px;
             pointer-events: auto;
             background: transparent;
         }
@@ -1152,6 +1255,21 @@
 
 
         .strip-thumb {
+            border: 0;
+            padding: 0;
+            background: transparent;
+            cursor: pointer;
+            width: 86px;
+            /* размер превью — меняй по вкусу */
+            height: 86px;
+            border-radius: 8px;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .strip-thumb-chess {
             border: 0;
             padding: 0;
             background: transparent;
@@ -1494,10 +1612,31 @@
             gap: 26px;
             justify-content: center;
             align-items: center;
-            margin: -4202px 0 36px;
+            margin: -1522px 0 36px;
+        }
+
+        .mini-galleries-inline1 {
+            display: grid;
+            gap: 26px;
+            justify-content: center;
+            align-items: center;
+            margin: -2212px 0 36px;
         }
 
         .mini-carousel {
+            position: relative;
+            width: 990px;
+            height: 560px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+        }
+
+        .mini-carousel1 {
             position: relative;
             width: 990px;
             height: 560px;
@@ -1530,35 +1669,103 @@
         }
 
         /* arrows */
+        /* arrows */
         .mini-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            z-index: 6;
-            background: rgba(255, 255, 255, 0.06);
-            border: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.8);
             color: #fff;
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 20px;
             cursor: pointer;
             user-select: none;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .mini-arrow:hover {
+            background: rgba(0, 0, 0, 0.9);
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
         }
 
         .mini-arrow.left {
-            left: 8px;
+            left: 20px;
         }
 
         .mini-arrow.right {
-            right: 8px;
+            right: 20px;
+        }
+
+        /* arrows для второй карусели */
+        .mini-arrow.left1,
+        .mini-arrow.right1 {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .mini-arrow.left1:hover,
+        .mini-arrow.right1:hover {
+            background: rgba(0, 0, 0, 0.9);
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .mini-arrow.left1 {
+            left: 20px;
+        }
+
+        .mini-arrow.right1 {
+            right: 20px;
+        }
+
+        @media (max-width:760px) {
+
+            .mini-arrow,
+            .mini-arrow.left1,
+            .mini-arrow.right1 {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+
+            .mini-arrow.left,
+            .mini-arrow.left1 {
+                left: 10px;
+            }
+
+            .mini-arrow.right,
+            .mini-arrow.right1 {
+                right: 10px;
+            }
         }
 
         /* counter */
-        .mini-counter {
+        .mini-counter1 {
             position: absolute;
             bottom: 8px;
             left: 50%;
@@ -1573,6 +1780,7 @@
         }
 
         /* hover/focus visual affordance (keeps size unchanged) */
+        /* hover/focus visual affordance */
         .mini-carousel:focus-within,
         .mini-carousel:hover {
             outline: none;
@@ -1585,24 +1793,83 @@
             transform: scale(1.02);
         }
 
+        .mini-carousel:focus-within .mini-arrow,
+        .mini-carousel:hover .mini-arrow {
+            opacity: 1;
+        }
+
+        .mini-carousel1:focus-within,
+        .mini-carousel1:hover {
+            outline: none;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .mini-carousel1:focus-within .mini-current1,
+        .mini-carousel1:hover .mini-current1 {
+            filter: none;
+            transform: scale(1.02);
+        }
+
+        .mini-carousel1:focus-within .mini-arrow,
+        .mini-carousel1:hover .mini-arrow {
+            opacity: 1;
+        }
+
         /* keyboard focus ring */
-        .mini-carousel:focus {
+        .mini-carousel1:focus {
             box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.04), 0 18px 36px rgba(0, 0, 0, 0.35);
         }
 
         /* responsive */
         @media (max-width:760px) {
-            .mini-carousel {
+            .mini-carousel1 {
                 width: 120px;
                 height: 80px;
             }
 
-            .mini-arrow {
+            .mini-arrow1 {
                 width: 34px;
                 height: 34px;
                 font-size: 16px;
             }
         }
+
+        .chess-img1 {
+            display: block;
+            width: 800px;
+            height: 430px;
+            border-radius: 12px;
+            object-fit: cover;
+            top: 160px;
+            position: relative;
+            z-index: 10000;
+            left: -30px;
+            filter: grayscale(100%);
+        }
+
+        /* Исправление для второй карусели - серые изображения и цвет при наведении */
+        .mini-carousel1 .mini-current1 {
+            filter: grayscale(100%) brightness(0.78) !important;
+        }
+
+        .mini-carousel1:focus-within .mini-current1,
+        .mini-carousel1:hover .mini-current1 {
+            filter: none !important;
+            transform: scale(1.02) !important;
+        }
+
+        /* Убедимся, что вторая карусель получает hover */
+        .mini-carousel1 {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Для отладки - можно временно добавить контур */
+        /*
+.mini-carousel1 {
+    border: 2px solid red;
+}
+*/
     </style>
 </head>
 
@@ -1698,15 +1965,6 @@
                             <img class="karate2" id="karate3"
                                 src="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/cvetii.png"
                                 alt="karate">
-                            <img class="karate3" id="karate4"
-                                src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/flaverss1.png?raw=true"
-                                alt="karate">
-                            <img class="karate4" id="karate5"
-                                src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/flaverss2.png?raw=true"
-                                alt="karate">
-                            <img class="karate5" id="karate6"
-                                src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/flaverss3.png?raw=true"
-                                alt="karate">
                             <!-- Стат-блок -->
                             <div class="stats-box" aria-hidden="false">
                                 <img class="medal"
@@ -1729,8 +1987,7 @@
                 </div>
             </div>
 
-            <!-- ==== MINI GALLERIES (вставить под секцией каратэ) ==== -->
-            <!-- ==== IN-PLACE MINI CAROUSELS (заменяет старые .mini-galleries + galleryOverlay) ==== -->
+            <!-- ==== IN-PLACE MINI CAROUSELS ==== -->
             <div class="container">
                 <div class="mini-galleries-inline" aria-hidden="false">
                     <!-- carousel 1 -->
@@ -1738,11 +1995,10 @@
                         <button class="mini-arrow left" aria-label="Previous image">◀</button>
                         <div class="mini-frame">
                             <img class="mini-current"
-                                src="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(15).png"
+                                src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate9.jpg?raw=true"
                                 alt="Gallery 1 image">
                         </div>
                         <button class="mini-arrow right" aria-label="Next image">▶</button>
-                        <div class="mini-counter" aria-hidden="true">1 / 4</div>
                     </div>
 
                     <!-- carousel 2 -->
@@ -1750,11 +2006,11 @@
                         <button class="mini-arrow left" type="button" aria-label="Previous image">◀</button>
                         <div class="mini-frame">
                             <img class="mini-current"
-                                src="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(11).png"
+                                src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate2.jpg?raw=true"
                                 alt="Gallery 2 image">
                         </div>
                         <button class="mini-arrow right" aria-label="Next image">▶</button>
-                        <div class="mini-counter" aria-hidden="true">1 / 4</div>
+
                     </div>
 
                     <!-- carousel 3 -->
@@ -1762,19 +2018,14 @@
                         <button class="mini-arrow left" type="button" aria-label="Previous image">◀</button>
                         <div class="mini-frame">
                             <img class="mini-current"
-                                src="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/photo_2025-09-27_17-26-38(1).jpg"
+                                src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate7.jpg?raw=true"
                                 alt="Gallery 3 image">
                         </div>
                         <button class="mini-arrow right" aria-label="Next image">▶</button>
-                        <div class="mini-counter" aria-hidden="true">1 / 4</div>
                     </div>
                 </div>
             </div>
             <!-- ==== END IN-PLACE MINI CAROUSELS ==== -->
-
-            <!-- Конец inline gallery -->
-
-            <!-- ==== END MINI GALLERIES ==== -->
 
             <!-- FULLSCREEN PANEL VIEWER (overlay) -->
             <div id="panelOverlay" class="panel-overlay" aria-hidden="true" role="dialog" aria-modal="true"
@@ -1817,120 +2068,218 @@
                     </div>
                 </div>
             </div>
+        </section>
 
+        <section id="chess">
+            <div class="container1">
+                <img class="chess-img1" id="chess-img2"
+                    src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/glases.png?raw=true"
+                    alt="Frontend thumbnail">
 
-            <section id="expertise">
-                <div class="container">
-                    <div class="section-title" id="section-title1">Expertise</div>
-
-                    <div class="expertise-grid" aria-live="polite">
-
-                        <div class="expertise-card" role="article" aria-labelledby="exp-frontend">
-                            <img class="card-img" id="card-img1"
-                                data-dark="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(15).png"
-                                data-light="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(9).png"
-                                alt="Frontend thumbnail">
-                            <h4 id="exp-frontend">Frontend</h4>
-                            <p>HTML, CSS, vanilla JavaScript - DOM manipulation, responsive layouts (Flexbox / Grid),
-                                and
-                                basic accessibility.</p>
-                            <div class="small-muted">Experienced in building interactive UI with client-side JS and
-                                debugging in Chrome DevTools.</div>
-                            <div class="skill-list">
-                                <span class="skill">HTML</span>
-                                <span class="skill">CSS</span>
-                                <span class="skill">JavaScript</span>
-                            </div>
-                        </div>
-
-                        <div class="expertise-card" role="article" aria-labelledby="exp-backend">
-                            <img class="card-img" id="card-img2"
-                                data-dark="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/%D0%B2%D0%B2%D0%B2%D0%B2.png"
-                                data-light="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(10).png"
-                                alt="Backend thumbnail">
-                            <h4 id="exp-backend">Backend</h4>
-                            <p>Understanding of HTTP, REST, and working with JSON APIs using fetch/async JS; learning
-                                basics
-                                of Node.js and simple server endpoints.</p>
-                            <div class="small-muted">Able to connect frontends to APIs and handle client-side data
-                                flows.
-                            </div>
-                            <div class="skill-list">
-                                <span class="skill">HTTP / REST</span>
-                                <span class="skill">fetch / async</span>
-                                <span class="skill">Node.js (learning)</span>
-                            </div>
-                        </div>
-
-                        <div class="expertise-card" role="article" aria-labelledby="exp-design">
-                            <img class="card-img" id="card-img3"
-                                data-dark="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(12).png"
-                                data-light="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(11).png"
-                                alt="Design thumbnail">
-                            <h4 id="exp-design">Design &amp; UX</h4>
-                            <p>Mobile-first responsive layouts with HTML/CSS, simple prototyping, and basic usability
-                                practices.</p>
-                            <div class="small-muted">Focus on clear layouts, readable typography and pleasant spacing.
-                            </div>
-                            <div class="skill-list">
-                                <span class="skill">Responsive design</span>
-                                <span class="skill">Prototyping</span>
-                                <span class="skill">Usability basics</span>
-                            </div>
-                        </div>
-
+                <div class="stats-box1" aria-hidden="false">
+                    <div class="stats-text-chess"><span style="color: rgb(128, 0, 0); font-size: 1.5em;">11</span>
+                        years of training
+                    </div>
+                    <div class="stats-text-chess"> <span style="color: rgb(128, 0, 0);font-size: 1.5em;">32</span>
+                        tournaments
+                    </div>
+                    <div class="stats-text-chess"><span style="color: rgb(128, 0, 0);font-size: 1.5em;">45</span>
+                        medals (22
+                        international)
                     </div>
                 </div>
-            </section>
+
+                <div class="chess-left-strip" aria-hidden="false" role="list">
+                    <button class="strip-thumb-chess" data-open-index="0" aria-label="image 1">
+                        <img class="strip-img"
+                            data-light="https://github.com/valeriiaanisimova/Portfolio-/blob/main/CB.png?raw=true"
+                            data-dark="https://github.com/valeriiaanisimova/Portfolio-/blob/main/CL.png?raw=true"
+                            alt="thumb 1">
+                    </button>
+                    <button class="strip-thumb-chess" data-open-index="1" aria-label="image 2">
+                        <img class="strip-img"
+                            data-light="https://github.com/valeriiaanisimova/Portfolio-/blob/main/HB.png?raw=true"
+                            data-dark="https://github.com/valeriiaanisimova/Portfolio-/blob/main/HL.png?raw=true"
+                            alt="thumb 2">
+                    </button>
+                    <button class="strip-thumb-chess" data-open-index="2" aria-label="image 3">
+                        <img class="strip-img"
+                            data-light="https://github.com/valeriiaanisimova/Portfolio-/blob/main/EBB.png?raw=true"
+                            data-dark="https://github.com/valeriiaanisimova/Portfolio-/blob/main/ELL.png?raw=true"
+                            alt="thumb 3">
+                    </button>
+                    <button class="strip-thumb-chess" data-open-index="3" aria-label="image 4">
+                        <img class="strip-img"
+                            data-light="https://github.com/valeriiaanisimova/Portfolio-/blob/main/SB1.png?raw=true"
+                            data-dark="https://github.com/valeriiaanisimova/Portfolio-/blob/main/SL1.png?raw=true"
+                            alt="thumb 4">
+                    </button>
+                    <button class="strip-thumb-chess" data-open-index="4" aria-label="image 5">
+                        <img class="strip-img"
+                            data-light="https://github.com/valeriiaanisimova/Portfolio-/blob/main/SB2.png?raw=true"
+                            data-dark="https://github.com/valeriiaanisimova/Portfolio-/blob/main/SL2.png?raw=true"
+                            alt="thumb 5">
+                    </button>
+                </div>
+
+                <img class="chess10" id="chess20"
+                    src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/fon1.png?raw=true" alt="karate">
+                <img class="chess20" id="chess30"
+                    src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/fon2.png?raw=true" alt="karate">
+
+            </div>
+
+            <div class="container">
+                <div class="mini-galleries-inline1" aria-hidden="false">
+                    <!-- carousel 1 -->
+                    <div class="mini-carousel1" data-gallery="1" tabindex="0" aria-label="Mini gallery 1">
+                        <button class="mini-arrow left1" aria-label="Previous image">◀</button>
+                        <div class="mini-frame1">
+                            <img class="mini-current1"
+                                src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate9.jpg?raw=true"
+                                alt="Gallery 1 image" style="width: 1000px; height: 750px;">
+                        </div>
+                        <button class="mini-arrow right1" aria-label="Next image">▶</button>
+                    </div>
+
+                    <!-- carousel 2 -->
+                    <div class="mini-carousel1" data-gallery="2" tabindex="0" aria-label="Mini gallery 2">
+                        <button class="mini-arrow left1" type="button" aria-label="Previous image">◀</button>
+                        <div class="mini-frame1">
+                            <img class="mini-current1"
+                                src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate2.jpg?raw=true"
+                                alt="Gallery 2 image" style="width: 900px; height: 750px;">
+                        </div>
+                        <button class="mini-arrow right1" aria-label="Next image">▶</button>
+                    </div>
+
+                    <!-- carousel 3 -->
+                    <div class="mini-carousel1" data-gallery="3" tabindex="0" aria-label="Mini gallery 3">
+                        <button class="mini-arrow left1" type="button" aria-label="Previous image">◀</button>
+                        <div class="mini-frame1">
+                            <img class="mini-current1"
+                                src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate7.jpg?raw=true"
+                                alt="Gallery 3 image">
+                        </div>
+                        <button class="mini-arrow right1" aria-label="Next image">▶</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="expertise">
+            <div class="container">
+                <div class="section-title1" id="section-title11">Programming</div>
+                <div class="section-title" id="section-title1">Expertise</div>
+
+                <div class="expertise-grid" aria-live="polite">
+
+                    <div class="expertise-card" role="article" aria-labelledby="exp-frontend">
+                        <img class="card-img" id="card-img1"
+                            data-dark="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(15).png"
+                            data-light="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(9).png"
+                            alt="Frontend thumbnail">
+                        <h4 id="exp-frontend">Frontend</h4>
+                        <p>HTML, CSS, vanilla JavaScript - DOM manipulation, responsive layouts (Flexbox / Grid),
+                            and
+                            basic accessibility.</p>
+                        <div class="small-muted">Experienced in building interactive UI with client-side JS and
+                            debugging in Chrome DevTools.</div>
+                        <div class="skill-list">
+                            <span class="skill">HTML</span>
+                            <span class="skill">CSS</span>
+                            <span class="skill">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card" role="article" aria-labelledby="exp-backend">
+                        <img class="card-img" id="card-img2"
+                            data-dark="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/%D0%B2%D0%B2%D0%B2%D0%B2.png"
+                            data-light="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(10).png"
+                            alt="Backend thumbnail">
+                        <h4 id="exp-backend">Backend</h4>
+                        <p>Understanding of HTTP, REST, and working with JSON APIs using fetch/async JS; learning
+                            basics
+                            of Node.js and simple server endpoints.</p>
+                        <div class="small-muted">Able to connect frontends to APIs and handle client-side data
+                            flows.
+                        </div>
+                        <div class="skill-list">
+                            <span class="skill">HTTP / REST</span>
+                            <span class="skill">fetch / async</span>
+                            <span class="skill">Node.js (learning)</span>
+                        </div>
+                    </div>
+
+                    <div class="expertise-card" role="article" aria-labelledby="exp-design">
+                        <img class="card-img" id="card-img3"
+                            data-dark="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(12).png"
+                            data-light="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/result(11).png"
+                            alt="Design thumbnail">
+                        <h4 id="exp-design">Design &amp; UX</h4>
+                        <p>Mobile-first responsive layouts with HTML/CSS, simple prototyping, and basic usability
+                            practices.</p>
+                        <div class="small-muted">Focus on clear layouts, readable typography and pleasant spacing.
+                        </div>
+                        <div class="skill-list">
+                            <span class="skill">Responsive design</span>
+                            <span class="skill">Prototyping</span>
+                            <span class="skill">Usability basics</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
 
 
-            <section id="history">
-                <div class="container">
-                    <div class="section-title" id="section-title2">Study History</div>
-                    <div class="timeline">
-                        <div class="timeline-item right">
-                            <div class="timeline-icon">🕮</div>
-                            <div class="timeline-content" id="blok1">
-                                <div class="timeline-year">2025</div>
-                                <div class="timeline-body">
-                                    Creating Games &amp; Tools - applied my skills in web development to design
-                                    interactive
-                                    projects combining math, probability, and visualization.
-                                </div>
+        <section id="history">
+            <div class="container">
+                <div class="section-title" id="section-title2">Study History</div>
+                <div class="timeline">
+                    <div class="timeline-item right">
+                        <div class="timeline-icon">🕮</div>
+                        <div class="timeline-content" id="blok1">
+                            <div class="timeline-year">2025</div>
+                            <div class="timeline-body">
+                                Creating Games &amp; Tools - applied my skills in web development to design
+                                interactive
+                                projects combining math, probability, and visualization.
                             </div>
                         </div>
-                        <div class="timeline-item left">
-                            <div class="timeline-icon">🕮</div>
-                            <div class="timeline-content" id="blok2">
-                                <div class="timeline-year">2024</div>
-                                <div class="timeline-body">
-                                    Learning by Doing - focused on self-study: coding challenges, experiments, and
-                                    building
-                                    small apps from scratch.
-                                </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-icon">🕮</div>
+                        <div class="timeline-content" id="blok2">
+                            <div class="timeline-year">2024</div>
+                            <div class="timeline-body">
+                                Learning by Doing - focused on self-study: coding challenges, experiments, and
+                                building
+                                small apps from scratch.
                             </div>
                         </div>
-                        <div class="timeline-item right">
-                            <div class="timeline-icon">🕮</div>
-                            <div class="timeline-content" id="blok3">
-                                <div class="timeline-year">2023</div>
-                                <div class="timeline-body">
-                                    Curiosity Sparked - first experiments with HTML &amp; CSS, realized I want to grow
-                                    as a
-                                    developer.
-                                </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-icon">🕮</div>
+                        <div class="timeline-content" id="blok3">
+                            <div class="timeline-year">2023</div>
+                            <div class="timeline-body">
+                                Curiosity Sparked - first experiments with HTML &amp; CSS, realized I want to grow
+                                as a
+                                developer.
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="projects">
-                <div class="container">
-                    <div class="section-title" id="section-title3">Personal Projects</div>
-                    <div class="projects-grid" id="projectsGrid" role="list" aria-live="polite"></div>
-                </div>
-            </section>
+        <section id="projects">
+            <div class="container">
+                <div class="section-title" id="section-title3">Personal Projects</div>
+                <div class="projects-grid" id="projectsGrid" role="list" aria-live="polite"></div>
+            </div>
+        </section>
     </main>
 
     <script>
@@ -2015,8 +2364,9 @@
         });
 
         /* ===== mini-carousels: delegation + independent state per carousel ===== */
+        /* ===== Первая карусель (без "1") ===== */
         (function () {
-            const mapping = (window.__miniGalleries && Object.keys(window.__miniGalleries).length) ? window.__miniGalleries : {
+            const mapping = {
                 '1': [
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate9.jpg?raw=true',
                     'https://github.com/valeriiaanisimova/Portfolio-/blob/main/karate1.jpg?raw=true',
@@ -2052,10 +2402,9 @@
                 ]
             };
 
-            // State store: Map from carousel element -> { idx, imgs, imgEl, counter }
-            const state = new Map();
+            // State store для первой карусели
+            const state1 = new Map();
 
-            // initialize each carousel DOM (render initial image + store refs)
             document.querySelectorAll('.mini-carousel').forEach(car => {
                 const id = car.dataset.gallery;
                 const imgs = mapping[id] || [];
@@ -2071,7 +2420,7 @@
                     counter,
                     el: car
                 };
-                state.set(car, data);
+                state1.set(car, data);
 
                 // initial render
                 if (imgEl) imgEl.src = imgs[0];
@@ -2085,7 +2434,7 @@
                     leftBtn.addEventListener('click', (e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        changeIndexForCarousel(car, -1);
+                        changeIndexForCarousel1(car, -1);
                     });
                 }
 
@@ -2093,7 +2442,7 @@
                     rightBtn.addEventListener('click', (e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        changeIndexForCarousel(car, 1);
+                        changeIndexForCarousel1(car, 1);
                     });
                 }
 
@@ -2101,10 +2450,10 @@
                 car.addEventListener('keydown', (e) => {
                     if (e.key === 'ArrowLeft') {
                         e.preventDefault();
-                        changeIndexForCarousel(car, -1);
+                        changeIndexForCarousel1(car, -1);
                     } else if (e.key === 'ArrowRight') {
                         e.preventDefault();
-                        changeIndexForCarousel(car, 1);
+                        changeIndexForCarousel1(car, 1);
                     }
                 });
 
@@ -2120,14 +2469,14 @@
                     const dx = e.changedTouches[0].clientX - startX;
                     startX = null;
                     if (Math.abs(dx) > 30) {
-                        changeIndexForCarousel(car, dx > 0 ? -1 : 1);
+                        changeIndexForCarousel1(car, dx > 0 ? -1 : 1);
                     }
                 }, { passive: true });
             });
 
             // helper: change index for given carousel element by delta (-1 or +1)
-            function changeIndexForCarousel(carEl, delta) {
-                const d = state.get(carEl);
+            function changeIndexForCarousel1(carEl, delta) {
+                const d = state1.get(carEl);
                 if (!d) return;
                 d.idx = ((d.idx + delta) % d.imgs.length + d.imgs.length) % d.imgs.length;
                 if (d.imgEl) d.imgEl.src = d.imgs[d.idx];
@@ -2135,21 +2484,110 @@
             }
         })();
 
+        /* ===== Вторая карусель (с "1") ===== */
+        (function () {
+            const mapping1 = {
+                '1': [
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/chesss1.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/chesss3.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/chesss6.jpg?raw=true',
+                ],
+                '2': [
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/chesss2.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/chesss7.jpg?raw=true',
+                ],
+                '3': [
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/chesss4.jpg?raw=true',
+                    'https://github.com/valeriiaanisimova/Portfolio-/blob/main/chesss5.jpg?raw=true',
+                ]
+            };
 
+            // State store для второй карусели - отдельный Map
+            const state2 = new Map();
 
+            document.querySelectorAll('.mini-carousel1').forEach(car => {
+                const id = car.dataset.gallery;
+                const imgs = mapping1[id] || [];
+                if (!imgs.length) return;
 
-        // additionally, disable any existing mini-gallery click handlers that call showGallery by capturing clicks
-        document.querySelectorAll('.mini-gallery-thumb, .mini-gallery').forEach(el => {
-            el.addEventListener('click', (e) => {
-                // only stop if the element is inside a .mini-carousel replacement — otherwise do nothing
-                if (el.closest && el.closest('.mini-carousel')) {
-                    e.stopImmediatePropagation();
-                    e.preventDefault();
+                const imgEl = car.querySelector('.mini-current1');
+                const counter = car.querySelector('.mini-counter1');
+
+                const data = {
+                    idx: 0,
+                    imgs,
+                    imgEl,
+                    counter,
+                    el: car
+                };
+                state2.set(car, data);
+
+                if (imgEl) imgEl.src = imgs[0];
+                if (counter) counter.textContent = `1 / ${imgs.length}`;
+
+                const leftBtn = car.querySelector('.mini-arrow.left1');
+                const rightBtn = car.querySelector('.mini-arrow.right1');
+
+                if (leftBtn) {
+                    leftBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        changeIndexForCarousel2(car, -1);
+                    });
                 }
-            }, { capture: true });
+
+                if (rightBtn) {
+                    rightBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        changeIndexForCarousel2(car, 1);
+                    });
+                }
+
+                car.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') {
+                        e.preventDefault();
+                        changeIndexForCarousel2(car, -1);
+                    } else if (e.key === 'ArrowRight') {
+                        e.preventDefault();
+                        changeIndexForCarousel2(car, 1);
+                    }
+                });
+
+                let startX = null;
+                car.addEventListener('touchstart', (e) => {
+                    if (!e.touches || !e.touches[0]) return;
+                    startX = e.touches[0].clientX;
+                }, { passive: true });
+
+                car.addEventListener('touchend', (e) => {
+                    if (startX === null) return;
+                    const dx = e.changedTouches[0].clientX - startX;
+                    startX = null;
+                    if (Math.abs(dx) > 30) {
+                        changeIndexForCarousel2(car, dx > 0 ? -1 : 1);
+                    }
+                }, { passive: true });
+            });
+
+            function changeIndexForCarousel2(carEl, delta) {
+                const d = state2.get(carEl);
+                if (!d) return;
+                d.idx = ((d.idx + delta) % d.imgs.length + d.imgs.length) % d.imgs.length;
+                if (d.imgEl) d.imgEl.src = d.imgs[d.idx];
+                if (d.counter) d.counter.textContent = `${d.idx + 1} / ${d.imgs.length}`;
+            }
+        })();
+
+        // Debug: проверка работы каруселей
+        console.log('Первая карусель:', document.querySelectorAll('.mini-carousel').length);
+        console.log('Вторая карусель:', document.querySelectorAll('.mini-carousel1').length);
+
+        document.querySelectorAll('.mini-carousel, .mini-carousel1').forEach(carousel => {
+            carousel.addEventListener('mouseenter', () => {
+                console.log('Карусель активна:', carousel.dataset.gallery);
+            });
         });
-
-
 
     </script>
 
