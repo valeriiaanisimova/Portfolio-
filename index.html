@@ -10,11 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
+
     <style>
         :root {
             --bg: rgb(24, 24, 24);
             --surface: #3e3c39;
-            --surface1:#c0805c;
+            --surface1: #fff783;
             --text: #ffffff;
             --muted: var(--text);
             --muted1: #554a4b;
@@ -56,7 +57,7 @@
             --muted1: #c4c0b7;
             --stroke-color: rgb(0, 0, 0);
             --card-bg: #cac2b9;
-            --card-bg1: #ffb58c;
+            --card-bg1: #f8f3e5;
             --card-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
 
             --header-bg: #ffffff;
@@ -102,7 +103,7 @@
 
         .container1 {
             max-width: var(--max-w);
-            margin: 112px auto;
+            margin: 1102px auto;
             padding: 0 var(--pad-x);
         }
 
@@ -219,6 +220,8 @@
             overflow: hidden;
             top: -20px;
             position: relative;
+            left: -50px;
+            border: 3px solid #ffe766;
         }
 
         .avatar img {
@@ -240,6 +243,8 @@
             font-weight: 900;
             line-height: 1.60;
             letter-spacing: 4px;
+            left: -70px;
+            position: relative;
         }
 
         .hero-sub {
@@ -247,7 +252,7 @@
             color: var(--muted);
             font-size: var(--subtitle-size);
             font-weight: 500;
-            left: -30px;
+            left: -110px;
             position: relative;
         }
 
@@ -297,6 +302,16 @@
             left: 330px;
             position: relative;
         }
+
+        .section-title2 {
+            font-size: 75px;
+            font-weight: 1050;
+            margin-bottom: -2px;
+            color: var(--text);
+            left: 330px;
+            position: relative;
+        }
+
 
         .muted {
             color: var(--muted);
@@ -638,10 +653,27 @@
 
         #section-title11 {
             top: -60px;
-            font-family: "Press Start 2P", monospace;
             font-size: 40px;
             color: #fff;
             text-shadow: 2px 2px 0 #000;
+        }
+
+        #section-title22 {
+            top: -300px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 32px;
+            left: -130px;
+            text-shadow: 2px 2px 0 #000;
+            color: crimson;
+        }
+
+        #section-title33 {
+            top: -1000px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 50px;
+            left: 1000px;
+            text-shadow: 2px 2px 0 #000;
+            color: crimson;
         }
 
         #section-title2 {
@@ -761,7 +793,9 @@
 
         /* Стили строго для секции karate — не затрагивают глобальные правила */
         .karate-section {
-            padding: 28px 0 60px;
+            padding: 268px 0 60px;
+            top: -50px;
+            position: relative;
         }
 
         .karate-grid {
@@ -792,14 +826,15 @@
 
         .photo-wrap img.karateIam {
             display: block;
-            width: 120%;
+            width: 90%;
             height: auto;
             border-radius: 12px;
             object-fit: cover;
-            top: -190px;
+            top: -350px;
             position: relative;
             z-index: 100;
-            left: -177px;
+            left: -134px;
+            opacity: 0.5;
         }
 
         .photo-wrap img.karate1 {
@@ -922,22 +957,22 @@
 
         .stats-box {
             position: absolute;
-            bottom: 2030px;
-            left: 10%;
+            bottom: 856px;
+            left: -53%;
             transform: translateX(8%);
             display: flex;
-            gap: 132px;
+            gap: 102px;
             align-items: center;
             background: var(--card-bg1);
             color: var(--text);
-            padding: 35px 15px;
-            border-radius: 12px;
+            padding: 20px 15px;
+            border-radius: 0px;
             min-width: 410px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
             border: 1px solid rgba(255, 255, 255, 0.03);
             font-weight: 610;
             z-index: 5;
-            width: 1230px;
+            width: 1590px;
         }
 
         .stats-box1 {
@@ -946,11 +981,11 @@
             left: -8%;
             transform: translateX(8%);
             display: flex;
-            gap: 132px;
+            gap: 42px;
             align-items: center;
             background: var(--card-bg1);
             color: var(--text);
-            padding: 61px 15px;
+            padding: 45px 15px;
             border-radius: 12px;
             min-width: 410px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
@@ -980,28 +1015,34 @@
         }
 
         .stats-text {
-            font-size: 20px;
             line-height: 1.2;
             color: var(--text);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            left: 107px;
+            left: 43px;
             position: relative;
-            font-family: 'Playfair Display', serif;
+            font-size: 17px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 17px;
+            color: #000;
+            letter-spacing: -2px;
         }
 
         .stats-text-chess {
-            font-size: 20px;
             line-height: 1.2;
             color: var(--text);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            left: 107px;
+            left: 87px;
             position: relative;
-            font-family: 'Playfair Display', serif;
-            top: -30px;
+            top: 0px;
+            font-size: 15px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 17px;
+            color: #000;
+            letter-spacing: -2px;
         }
 
         /* mini thumbs */
@@ -1615,7 +1656,7 @@
             gap: 26px;
             justify-content: center;
             align-items: center;
-            margin: -992px 0 36px;
+            margin: -612px 0 36px;
         }
 
         .mini-galleries-inline1 {
@@ -1623,7 +1664,7 @@
             gap: 26px;
             justify-content: center;
             align-items: center;
-            margin: -2212px 0 36px;
+            margin: -2222px 0 36px;
         }
 
         .mini-carousel {
@@ -1637,7 +1678,7 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-            top: -1043px;
+            top: -243px;
             left: 290px;
             z-index: -10;
         }
@@ -1870,7 +1911,7 @@
         .mini-carousel1 {
             position: relative;
             z-index: 10;
-            top: 853px;
+            top: -127px;
             left: -339px;
         }
 
@@ -1880,6 +1921,54 @@
     border: 2px solid red;
 }
 */
+
+        .floating-github-icon {
+            position: absolute;
+            bottom: 210px;
+            right: 1030px;
+            width: 50px;
+            height: 50px;
+            border-radius: 80%;
+            background: radial-gradient(circle at center, rgba(120, 0, 255, 0.2), rgba(50, 0, 100, 0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 25px 3px rgba(150, 0, 255, 0.5);
+            animation: floatUpDown 6s ease-in-out infinite;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .floating-github-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 35px 12px rgba(180, 0, 255, 0.8);
+            background: radial-gradient(circle at center, rgba(150, 0, 255, 0.4), rgba(80, 0, 160, 0.6));
+        }
+
+        .floating-github-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: white;
+            transition: fill 0.3s;
+        }
+
+        .floating-github-icon:hover svg {
+            fill: #d8b4fe;
+            /* нежно-фиолетовый при наведении */
+        }
+
+        /* Плавание вверх-вниз */
+        @keyframes floatUpDown {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
     </style>
 </head>
 
@@ -1901,13 +1990,23 @@
 
         <section class="hero" id="hero">
             <img class="hero-img dark"
-                src="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/photo_2025-09-27_17-26-38(1).jpg"
+                src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/fonnn22.jpg?raw=true"
                 alt="dark theme image">
             <img class="hero-img light"
-                src="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/photo_2025-09-27_17-19-23(1).jpg"
+                src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/fonnn2.jpg?raw=true"
                 alt="light theme image">
 
             <div class="hero-inner container">
+                <a href="https://github.com/valeriiaanisimova" target="_blank" class="floating-github-icon"
+                    aria-label="GitHub Profile">
+                    <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 1.27a11 11 0 00-3.48 21.46c.55.09.73-.28.73-.55v-1.84c-3.03.64-3.67-1.46-3.67-1.46-.55-1.29-1.28-1.65-1.28-1.65-.92-.65.1-.65.1-.65 1.1 0 1.73 1.1 1.73 1.1.92 1.65 2.57 1.2 3.21.92a2 2 0 01.64-1.47c-2.47-.27-5.04-1.19-5.04-5.5 0-1.1.46-2.1 1.2-2.84a3.76 3.76 0 010-2.93s.91-.28 3.11 1.1c1.8-.49 3.7-.49 5.5 0 2.1-1.38 3.02-1.1 3.02-1.1a3.76 3.76 0 010 2.93c.83.74 1.2 1.74 1.2 2.94 0 4.21-2.57 5.13-5.04 5.4.45.37.82.92.82 2.02v3.03c0 .27.1.64.73.55A11 11 0 0012 1.27">
+                        </path>
+                    </svg>
+                </a>
+
+
                 <div class="left">
                     <div class="avatar"><img
                             src="https://raw.githubusercontent.com/valeriiaanisimova/My-portfolio/refs/heads/main/%D1%8F%D1%8F(1).jpg"
@@ -1923,70 +2022,25 @@
 
         <section id="karate">
             <div class="container karate-section">
+                <div class="section-title2" id="section-title22">karate</div>
                 <div class="karate-grid">
                     <div class="karate-left">
                         <div class="photo-wrap">
-                            <div class="karate-left-strip" aria-hidden="false" role="list">
-                                <button class="strip-thumb" data-open-index="0" aria-label="image 1">
-                                    <img class="strip-img"
-                                        data-light="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/KB.png"
-                                        data-dark="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/KW.png"
-                                        alt="thumb 1">
-                                </button>
-                                <button class="strip-thumb" data-open-index="1" aria-label="image 2">
-                                    <img class="strip-img"
-                                        data-light="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/AB.png"
-                                        data-dark="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/AW.png"
-                                        alt="thumb 2">
-                                </button>
-                                <button class="strip-thumb" data-open-index="2" aria-label="image 3">
-                                    <img class="strip-img"
-                                        data-light="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/RB.png"
-                                        data-dark="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/RW.png"
-                                        alt="thumb 3">
-                                </button>
-                                <button class="strip-thumb" data-open-index="3" aria-label="image 4">
-                                    <img class="strip-img"
-                                        data-light="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/A2B.png"
-                                        data-dark="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/A2W.png"
-                                        alt="thumb 4">
-                                </button>
-                                <button class="strip-thumb" data-open-index="4" aria-label="image 5">
-                                    <img class="strip-img"
-                                        data-light="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/TB.png"
-                                        data-dark="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/TW.png"
-                                        alt="thumb 5">
-                                </button>
-                                <button class="strip-thumb" data-open-index="5" aria-label="image 6">
-                                    <img class="strip-img"
-                                        data-light="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/EB.png"
-                                        data-dark="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/EW.png"
-                                        alt="thumb 5">
-                                </button>
-                            </div>
+
                             <!-- END -->
 
                             <img class="karateIam" id="karate1"
                                 src="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/camurai.png"
                                 alt="karate">
-                            <img class="karate1" id="karate2"
-                                src="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/tigr.png"
-                                alt="karate">
-                            <img class="karate2" id="karate3"
-                                src="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/cvetii.png"
-                                alt="karate">
                             <!-- Стат-блок -->
                             <div class="stats-box" aria-hidden="false">
-                                <img class="medal"
-                                    src="https://raw.githubusercontent.com/valeriiaanisimova/Portfolio-/refs/heads/main/medali.png"
-                                    alt="medals">
-                                <div class="stats-text"><span style="color: rgb(128, 0, 0); font-size: 1.5em;">11</span>
+                                <div class="stats-text"><span style="color: rgb(128, 0, 0); font-size: 1.1em;">11</span>
                                     years of training
                                 </div>
-                                <div class="stats-text"> <span style="color: rgb(128, 0, 0);font-size: 1.5em;">32</span>
+                                <div class="stats-text"> <span style="color: rgb(128, 0, 0);font-size: 1.1em;">32</span>
                                     tournaments
                                 </div>
-                                <div class="stats-text"><span style="color: rgb(128, 0, 0);font-size: 1.5em;">45</span>
+                                <div class="stats-text"><span style="color: rgb(128, 0, 0);font-size: 1.1em;">45</span>
                                     medals (22
                                     international)
                                 </div>
@@ -2059,54 +2113,21 @@
 
         <section id="chess">
             <div class="container1">
+                <div class="section-title2" id="section-title33">chess</div>
                 <img class="chess-img1" id="chess-img2"
                     src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/glases.png?raw=true"
                     alt="Frontend thumbnail">
 
                 <div class="stats-box1" aria-hidden="false">
-                    <div class="stats-text-chess"><span style="color: rgb(128, 0, 0); font-size: 1.5em;">11</span>
+                    <div class="stats-text-chess"><span style="color: rgb(128, 0, 0); font-size: 1.5em;">8</span>
                         years of training
                     </div>
-                    <div class="stats-text-chess"> <span style="color: rgb(128, 0, 0);font-size: 1.5em;">32</span>
+                    <div class="stats-text-chess"> <span style="color: rgb(128, 0, 0);font-size: 1.5em;">28</span>
                         tournaments
                     </div>
-                    <div class="stats-text-chess"><span style="color: rgb(128, 0, 0);font-size: 1.5em;">45</span>
-                        medals (22
-                        international)
+                    <div class="stats-text-chess"><span style="color: rgb(128, 0, 0);font-size: 1.5em;">35</span>
+                        medals
                     </div>
-                </div>
-
-                <div class="chess-left-strip" aria-hidden="false" role="list">
-                    <button class="strip-thumb-chess" data-open-index="0" aria-label="image 1">
-                        <img class="strip-img"
-                            data-light="https://github.com/valeriiaanisimova/Portfolio-/blob/main/CB.png?raw=true"
-                            data-dark="https://github.com/valeriiaanisimova/Portfolio-/blob/main/CL.png?raw=true"
-                            alt="thumb 1">
-                    </button>
-                    <button class="strip-thumb-chess" data-open-index="1" aria-label="image 2">
-                        <img class="strip-img"
-                            data-light="https://github.com/valeriiaanisimova/Portfolio-/blob/main/HB.png?raw=true"
-                            data-dark="https://github.com/valeriiaanisimova/Portfolio-/blob/main/HL.png?raw=true"
-                            alt="thumb 2">
-                    </button>
-                    <button class="strip-thumb-chess" data-open-index="2" aria-label="image 3">
-                        <img class="strip-img"
-                            data-light="https://github.com/valeriiaanisimova/Portfolio-/blob/main/EBB.png?raw=true"
-                            data-dark="https://github.com/valeriiaanisimova/Portfolio-/blob/main/ELL.png?raw=true"
-                            alt="thumb 3">
-                    </button>
-                    <button class="strip-thumb-chess" data-open-index="3" aria-label="image 4">
-                        <img class="strip-img"
-                            data-light="https://github.com/valeriiaanisimova/Portfolio-/blob/main/SB1.png?raw=true"
-                            data-dark="https://github.com/valeriiaanisimova/Portfolio-/blob/main/SL1.png?raw=true"
-                            alt="thumb 4">
-                    </button>
-                    <button class="strip-thumb-chess" data-open-index="4" aria-label="image 5">
-                        <img class="strip-img"
-                            data-light="https://github.com/valeriiaanisimova/Portfolio-/blob/main/SB2.png?raw=true"
-                            data-dark="https://github.com/valeriiaanisimova/Portfolio-/blob/main/SL2.png?raw=true"
-                            alt="thumb 5">
-                    </button>
                 </div>
             </div>
 
