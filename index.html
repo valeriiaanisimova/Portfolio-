@@ -9,7 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -218,7 +219,7 @@
             height: 150px;
             border-radius: 159px;
             overflow: hidden;
-            top: -20px;
+            top: -65px;
             position: relative;
             left: -50px;
             border: 3px solid #ffe766;
@@ -245,6 +246,7 @@
             letter-spacing: 4px;
             left: -70px;
             position: relative;
+            top: 26px;
         }
 
         .hero-sub {
@@ -252,8 +254,19 @@
             color: var(--muted);
             font-size: var(--subtitle-size);
             font-weight: 500;
+            left: -150px;
+            position: relative;
+            width: 331px;
+        }
+
+        .hero-sub1 {
+            margin: 6px 0 0;
+            color: #d747ff;
+            font-size: 31px;
+            font-weight: 500;
             left: -110px;
             position: relative;
+            width: 331px;
         }
 
         .hero-img {
@@ -667,6 +680,16 @@
             color: crimson;
         }
 
+        #section-title23 {
+            top: -720px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 32px;
+            left: -130px;
+            text-shadow: 2px 2px 0 #000;
+            color: crimson;
+            z-index: 1000;
+        }
+
         #section-title33 {
             top: -1000px;
             font-family: 'Dancing Script', cursive;
@@ -792,17 +815,80 @@
         }
 
         /* Стили строго для секции karate — не затрагивают глобальные правила */
+        /* родитель секции: нужен контекст для абсолютного фон-блока */
         .karate-section {
-            padding: 268px 0 60px;
-            top: -50px;
             position: relative;
+            /* обязательно */
+            padding: 60px 0;
+            /* подгони под дизайн */
+            z-index: auto;
+            /* убираем экстремальные отрицательные значения */
         }
+
+        .Iam-section {
+            position: relative;
+            /* обязательно */
+            padding: 60px 0;
+            /* подгони под дизайн */
+            z-index: auto;
+            /* убираем экстремальные отрицательные значения */
+        }
+
+        /* сам фоновый контейнер (в него вставляется canvas) */
+        #bg-59 {
+            position: absolute;
+            top: -100px;
+            left: -170px;
+            width: 129%;
+            height: 550px;
+            min-height: 300px;
+            overflow: hidden;
+            z-index: -1000;
+            pointer-events: none;
+            background-color: #fff;
+        }
+
+        /* canvas: растянуть на всю область контейнера */
+        #bg-59 canvas {
+            display: block;
+            /* убирает белые полосы вокруг */
+            width: 100%;
+            /* CSS размеры — для layout */
+            height: 100%;
+            /* CSS размеры — для layout */
+            pointer-events: none;
+        }
+
+        /* поднять контент над фоном */
+        .karate-section>.section-inner,
+        .karate-section>*:not(#bg-59) {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* адаптив — уменьшать высоту на узких экранах */
+        @media (max-width: 768px) {
+            #bg-59 {
+                height: 40vh;
+                min-height: 220px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            #bg-59 {
+                height: 32vh;
+                min-height: 180px;
+            }
+        }
+
 
         .karate-grid {
             display: grid;
             grid-template-columns: 1fr 420px;
             gap: 28px;
             align-items: start;
+            z-index: -1000000000;
+            position: relative;
         }
 
         @media (max-width: 980px) {
@@ -824,18 +910,56 @@
             top: 110px;
         }
 
+        .photo-wrap1 {
+            display: inline-block;
+            position: relative;
+            max-width: 560px;
+            top: 110px;
+        }
+
+        .photo-wrap2 {
+            display: inline-block;
+            position: relative;
+            max-width: 560px;
+            top: 110px;
+        }
+
         .photo-wrap img.karateIam {
             display: block;
             width: 90%;
             height: auto;
             border-radius: 12px;
             object-fit: cover;
-            top: -350px;
+            top: -210px;
             position: relative;
             z-index: 100;
             left: -134px;
-            opacity: 0.5;
         }
+
+        .photo-wrap1 img.Iam {
+            display: block;
+            width: 105%;
+            height: auto;
+            border-radius: 12px;
+            object-fit: cover;
+            top: -1338px;
+            position: relative;
+            z-index: 100;
+            left: 814px;
+        }
+
+        .photo-wrap2 img.card-img {
+            display: block;
+            width: 274%;
+            height: 570px;
+            border-radius: 12px;
+            object-fit: cover;
+            top: -798px;
+            position: relative;
+            z-index: 100;
+            left: -167px;
+        }
+
 
         .photo-wrap img.karate1 {
             display: block;
@@ -957,22 +1081,13 @@
 
         .stats-box {
             position: absolute;
-            bottom: 856px;
-            left: -53%;
+            bottom: 826px;
+            left: 17%;
             transform: translateX(8%);
             display: flex;
-            gap: 102px;
+            gap: 22px;
             align-items: center;
-            background: var(--card-bg1);
-            color: var(--text);
-            padding: 20px 15px;
-            border-radius: 0px;
-            min-width: 410px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            font-weight: 610;
-            z-index: 5;
-            width: 1590px;
+
         }
 
         .stats-box1 {
@@ -1022,11 +1137,7 @@
             text-overflow: ellipsis;
             left: 43px;
             position: relative;
-            font-size: 17px;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 17px;
-            color: #000;
-            letter-spacing: -2px;
+            font-size: 15px;
         }
 
         .stats-text-chess {
@@ -1042,7 +1153,6 @@
             font-family: 'Press Start 2P', cursive;
             font-size: 17px;
             color: #000;
-            letter-spacing: -2px;
         }
 
         /* mini thumbs */
@@ -1213,6 +1323,10 @@
         }
 
         #karate {
+            position: relative;
+        }
+
+        #Iam {
             position: relative;
         }
 
@@ -1669,8 +1783,8 @@
 
         .mini-carousel {
             position: relative;
-            width: 730px;
-            height: 450px;
+            width: 510px;
+            height: 320px;
             border-radius: 10px;
             overflow: hidden;
             background: var(--card-bg);
@@ -1678,9 +1792,9 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-            top: -243px;
-            left: 290px;
-            z-index: -10;
+            top: 7px;
+            left: 370px;
+            z-index: 100000;
         }
 
         .mini-carousel1 {
@@ -1924,7 +2038,7 @@
 
         .floating-github-icon {
             position: absolute;
-            bottom: 210px;
+            bottom: 316px;
             right: 1030px;
             width: 50px;
             height: 50px;
@@ -1968,6 +2082,57 @@
             50% {
                 transform: translateY(-15px);
             }
+        }
+
+        glass-backdrop {
+            height: 400px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            background: url("background.jpg") center no-repeat;
+        }
+
+        .glass-backdrop span {
+            position: relative;
+            text-align: center;
+            color: #FFF;
+            width: 850px;
+            font-size: 16px;
+            line-height: 0px;
+            padding: 50px 50px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2), 0 16px 28px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+            text-transform: uppercase;
+            font-family: 'Roboto', Tahoma, sans-serif;
+            letter-spacing: 4px;
+            z-index: 100000;
+            overflow: hidden;
+            backdrop-filter: blur(3px) grayscale(1);
+            height: 529px;
+            display: block;
+            top: -247px;
+            left: -80px;
+            margin-top: 0;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 7rem;
+            font-weight: 700;
+            line-height: .9;
+        }
+
+        .word1 {
+            position: relative;
+        }
+
+        .word2 {
+            position: relative;
+            left: 13px;
+        }
+
+        .word3 {
+            position: relative;
+            left: 75px;
         }
     </style>
 </head>
@@ -2014,15 +2179,42 @@
                 </div>
                 <div class="hero-title">
                     <h1 class="hero-name">Valerie</h1>
-                    <p class="hero-sub">Personal Projects Developer</p>
+                    <p class="hero-sub1">Ambition Is Forever</p>
+                    <p class="hero-sub">I'm Valerie, a seventeen-year-old Ukrainian chess player, karate athlete, and
+                        projects developer proving that passion is greater than probability.</p>
                 </div>
             </div>
         </section>
 
+        <section id="Iam">
+            <div class="container Iam-section">
+                <div class="photo-wrap2">
+                    <div class="glass-backdrop">
+                        <span>
+                            <div class="word1">Make</div>
+                            <div class="word2">peace</div>
+                            <div class="word3">possible</div>
+                        </span>
+                    </div>
+                    <img class="card-img" id="Iam12"
+                        data-dark="https://github.com/valeriiaanisimova/Portfolio-/blob/main/photo(12).png?raw=true"
+                        data-light="https://github.com/valeriiaanisimova/Portfolio-/blob/main/4e49a85b757b11d3744b66da0178af4c(1).jpg?raw=true"
+                        alt="Frontend">
+                </div>
+                <div class="section-title2" id="section-title23">What I Stand For</div>
+                <div class="photo-wrap1">
+                    <img class="Iam" id="Iam1"
+                        src="https://github.com/valeriiaanisimova/Portfolio-/blob/main/IamPhoto.png?raw=true"
+                        alt="karate">
+                </div>
+
+            </div>
+
+        </section>
 
         <section id="karate">
             <div class="container karate-section">
-                <div class="section-title2" id="section-title22">karate</div>
+                <div class="section-title2" id="section-title22">I am a karate kid</div>
                 <div class="karate-grid">
                     <div class="karate-left">
                         <div class="photo-wrap">
@@ -2034,13 +2226,13 @@
                                 alt="karate">
                             <!-- Стат-блок -->
                             <div class="stats-box" aria-hidden="false">
-                                <div class="stats-text"><span style="color: rgb(128, 0, 0); font-size: 1.1em;">11</span>
+                                <div class="stats-text"><span style="color: rgb(128, 0, 0); font-size: 2.8em;">11</span>
                                     years of training
                                 </div>
-                                <div class="stats-text"> <span style="color: rgb(128, 0, 0);font-size: 1.1em;">32</span>
+                                <div class="stats-text"> <span style="color: rgb(128, 0, 0);font-size: 2.8em;">32</span>
                                     tournaments
                                 </div>
-                                <div class="stats-text"><span style="color: rgb(128, 0, 0);font-size: 1.1em;">45</span>
+                                <div class="stats-text"><span style="color: rgb(128, 0, 0);font-size: 2.8em;">45</span>
                                     medals (22
                                     international)
                                 </div>
@@ -2563,8 +2755,6 @@
         });
 
     </script>
-
-
 </body>
 
 </html>
