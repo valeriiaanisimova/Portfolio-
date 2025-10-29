@@ -30,10 +30,10 @@
 		}
 
 		.project {
-			background: rgba(43, 34, 0, 0.6);
+			background: #82a0aa;
 			border-radius: 12px;
 			overflow: hidden;
-			border: 15px solid rgba(255, 255, 255, 0.2);
+			border: 15px solid rgba(0, 0, 0, 0.3);
 			display: flex;
 			flex-direction: column;
 			transition: transform .18s var(--ease), box-shadow .18s var(--ease);
@@ -133,37 +133,183 @@
 
 		.wordhh2 {
 			font-family: 'Bebas Neue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-			color: #a8a87d;
+			color: #a3cfcd;
 			font-size: 400%;
 		}
+
 		#button1 {
-				-moz-appearance: none;
-	-webkit-appearance: none;
-	-ms-appearance: none;
-	appearance: none;
-	-moz-transition: border-color 0.2s ease;
-	-webkit-transition: border-color 0.2s ease;
-	-ms-transition: border-color 0.2s ease;
-	transition: border-color 0.2s ease;
-	background-color: #5b573829;
-	border: solid 1px !important;
-border-color: rgba(255, 255, 255, 0.5) !important;
-  border-radius: 3em;
-  color: #ffe684 !important;
-	cursor: pointer;
-	display: inline-block;
-	font-size: 0.6em;
-	font-weight: bold;
-	height: calc(4.75em + 2px);
-	letter-spacing: 0.25em;
-	line-height: 4.75em;
-	outline: 0;
-	padding: 0 3.75em;
-	position: relative;
-	text-align: center;
-	text-decoration: none;
-	text-transform: uppercase;
-	white-space: nowrap;
+			-moz-appearance: none;
+			-webkit-appearance: none;
+			-ms-appearance: none;
+			appearance: none;
+			-moz-transition: border-color 0.2s ease;
+			-webkit-transition: border-color 0.2s ease;
+			-ms-transition: border-color 0.2s ease;
+			transition: border-color 0.2s ease;
+			background-color: #5b573829;
+			border: solid 1px !important;
+			border-color: rgba(255, 255, 255, 0.5) !important;
+			border-radius: 3em;
+			color: #6bfff8 !important;
+			cursor: pointer;
+			display: inline-block;
+			font-size: 0.6em;
+			font-weight: bold;
+			height: calc(4.75em + 2px);
+			letter-spacing: 0.25em;
+			line-height: 4.75em;
+			outline: 0;
+			padding: 0 3.75em;
+			position: relative;
+			text-align: center;
+			text-decoration: none;
+			text-transform: uppercase;
+			white-space: nowrap;
+		}
+
+		/* make elements size-safe and centered on small screens */
+		.project {
+			box-sizing: border-box;
+			/* учитываем внутренние отступы при ширине */
+			max-width: 516px;
+			/* сохраняем максимум для десктопа */
+			width: 100%;
+			/* на мобильных займёт ширину контейнера */
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		/* mobile / tablet breakpoint */
+		@media (max-width: 759px) {
+			.projects-grid {
+				grid-template-columns: 1fr;
+				/* одна колонка — уже задано в базовых стилях, но на всякий случай */
+				gap: 14px;
+				margin-top: 12px;
+				padding: 0 12px;
+				/* отступы слева/справа для красивого вида на узких экранах */
+			}
+
+			.project {
+				width: 100%;
+				height: auto;
+				/* авто-высота, чтобы карточка подстраивалась под контент */
+				border-radius: 10px;
+				border-width: 12px;
+			}
+
+			.thumb {
+				height: 200px;
+				object-fit: cover;
+			}
+
+			.p-body {
+				padding: 16px;
+			}
+
+			.p-title {
+				font-size: 1.1em;
+				margin-bottom: 8px;
+			}
+
+			.p-desc {
+				font-size: 0.95em;
+			}
+
+			.chips {
+				gap: 6px;
+			}
+
+			.chip {
+				padding: 3px 8px;
+				font-size: 0.75em;
+			}
+
+			/* header / decorative text adjustments */
+			.wordhh1 {
+				position: relative;
+				/* убираем абсолютное позиционирование, чтобы не резать контент */
+				top: 0;
+				font-size: 260%;
+				/* уменьшено с 600% */
+				line-height: 1;
+				margin: 0 0 0.25em 0;
+			}
+
+			.wordhh2 {
+				font-size: 160%;
+				/* уменьшено с 400% */
+			}
+
+			/* button responsive */
+			#button1 {
+				font-size: 0.7em;
+				padding: 0 2.5em;
+				height: 3.6em;
+				line-height: 3.6em;
+				letter-spacing: 0.18em;
+			}
+		}
+
+		/* small phones */
+		@media (max-width: 480px) {
+			.projects-grid {
+				gap: 10px;
+				padding: 0 10px;
+			}
+
+			.thumb {
+				height: 140px;
+			}
+
+			.p-body {
+				padding: 12px;
+			}
+
+			.p-title {
+				font-size: 1.0em;
+			}
+
+			.p-desc {
+				font-size: 0.92em;
+			}
+
+			.chip {
+				padding: 2px 6px;
+				font-size: 0.72em;
+			}
+
+			.wordhh1 {
+				font-size: 180%;
+			}
+
+			.wordhh2 {
+				font-size: 130%;
+			}
+
+			#button1 {
+				font-size: 0.62em;
+				padding: 0 1.4em;
+				height: 3em;
+				line-height: 3em;
+				letter-spacing: 0.12em;
+			}
+		}
+
+		#texttt {
+			color: #ffffff;
+		}
+
+		#texttt1 {
+			color: #ffffff;
+		}
+
+		#texttt2 {
+			color: #ffffff;
+		}
+
+		#texttt3 {
+			color: #ffffff;
 		}
 	</style>
 </head>
@@ -192,7 +338,8 @@ border-color: rgba(255, 255, 255, 0.5) !important;
 			<div class="inner">
 				<h1 class="wordhh1">Ambition</h1>
 				<h1 class="wordhh2">Is Forever</h1>
-				<p>I'm Valerie, a seventeen-year-old <a style="color: #ff0;">Ukrai</a><a style="color: #00b7ff;">nian</a> chess player, karate athlete, and
+				<p id="texttt">I'm Valerie, a seventeen-year-old <a style="color: rgb(255, 255, 177);">Ukrai</a><a
+						style="color: #8adeff;">nian</a> chess player, karate athlete, and
 					projects developer proving that passion is greater than probability.</p>
 				<ul class="actions">
 					<li><a href="#one" class="button scrolly" id="button1">Learn more</a></li>
@@ -258,8 +405,8 @@ border-color: rgba(255, 255, 255, 0.5) !important;
 		<!-- Two -->
 		<section id="two" class="wrapper style3 fade-up">
 			<div class="inner">
-				<h2>Programming Expertise</h2>
-				<p>My skills and technologies I work with</p>
+				<h2 id="texttt1">Programming Expertise</h2>
+				<p id="texttt2">My skills and technologies I work with</p>
 				<div class="features">
 					<section>
 						<span class="icon solid major fa-code"></span>
@@ -322,7 +469,7 @@ border-color: rgba(255, 255, 255, 0.5) !important;
 		<!-- Three (Projects) -->
 		<section id="three" class="wrapper style1 fade-up">
 			<div class="inner">
-				<h2>Personal Projects</h2>
+				<h2 id="texttt3">Personal Projects</h2>
 				<div class="projects-grid" id="projectsGrid" role="list" aria-live="polite"></div>
 			</div>
 		</section>
